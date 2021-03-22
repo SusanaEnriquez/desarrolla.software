@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reglas especificas</title>
+    <style>
+        /* *{
+            font-size: 3rem;
+        } */
+
+        /* parrafos dentro de los div */
+        div p.A{
+            color: olivedrab;
+        }
+
+        p{
+            color: teal;
+            font-size: 2rem;
+        }
+
+        p.A{
+            color: red;
+        }
+
+        .encabezado{
+            font-size: 1rem;
+            color: hotpink;
+            background-color: black;
+            font-weight: bold;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .hobby{
+            font-style: italic;
+            font-weight: bold;
+        }
+
+        td{
+            color: slateblue;
+        }
+
+        h2{
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+    </style>
+</head>
+
+<body>
+    <p>Hola</p>
+    <div class="A">
+        <p class="A">mundo :)</p>
+    </div>
+    
+    <header>Header</header>
+    <main>Main</main>
+    <footer>Footer</footer>
+
+
+<br><br>
+<h2>Actividad para darle estilo a una tabla</h2>
+<table border>
+    <thead>
+        <tr>
+            <th class="encabezado">Hobby</th> <!-- Titulo de columna -->
+            <th  class="encabezado">Descripcion</th>
+            <th  class="encabezado">Imagen</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td class="hobby">Musica</td>
+            <td>Me gusta tocar el teclado, descubrir musica nueva</td>
+            <td><img height="50px" width="70px" src="https://tecladomusical.online/wp-content/uploads/2019/04/que-es-un-teclado-musical-e1554832800773.jpg" alt="teclado"></td>
+        </tr>
+
+        <tr>
+            <td class="hobby">Fotografia</td>
+            <td>Me gusta tomar fotos, en especial de paisajes, el cielo y la narutaleza</td>
+            <td><img height="50px" width="70px" src="https://trabajarporelmundo.org/wp-content/uploads/2018/05/curso-de-fotografia-online-y-gratuito-del-MoMa.jpg" alt="Fotografia"></td>
+        </tr>
+
+        <tr>
+            <td class="hobby">Netflix</td>
+            <td>Me gusta ver peliculas y series</td>
+            <td><img height="50px" width="70px" src="https://www.tendencias.mx/wp-content/uploads/2018/12/netflix-1.jpg" alt="Pelis"></td>
+        </tr>
+    </tbody>
+</table>
+</body>
+</html>

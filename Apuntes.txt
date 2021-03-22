@@ -1,0 +1,265 @@
+HTML
+Conceptos básicos
+    *Qué es una etiqueta
+        -Un elemento Web (nodo)
+        Ejemplo: <etiqueta />
+        Ejemplo: <etiqueta></etiqueta>
+        <br>
+        <img />
+        <input />
+        <div></div>
+    
+    *Mencione cuál es la estructura de una etiqueta
+        <etiqueta ATTR="Valor">CONTENIDO</etiqueta>
+        -Donde CONTENIDO puede ser desde texto hasta otras etiquetas
+        -ATTR es un atributo, y su valor siempre va entre comillas
+
+    *Escribir la etiqueta DESARROLLA con el atributo horario que tenga el valor 9:00 A.M., el atributo nombreCurso que tenga el valor de Primavera2021 y otro atributo, maestro, con el valor de Kevin
+        -> <DESARROLLA horario="9:00 A.M." nombreCurso="Primavera2021" maestro="Kevin"></DESARROLLA>
+    
+    *Escriba la etiqueta EXAMEN, que tiene los atributos fecha con el valor de 12/03/2021 y hora que sea el valor de 9:00 A.M.
+        -> <EXAMEN fecha="12/03/2021" hora="9:00 A.M."></EXAMEN>
+
+
+    *Qué tipos de etiquetas existen:
+        -Doble etiqueta: <div>CONTENIDO</div>
+        -Etiqueta individual: <input type="text"> ó <input type="text" />
+        -Etiqueta mixtas: <li>item</li> ó <li>item (Dependen de la funcionalidad del navegador)
+        <ul>
+            <li>Elemento 1</li>
+            <li>Elemento 2
+            <li>Elemento 3
+        </ul>
+
+    *Qué es una página Web
+        -Es un conjunto de etiquetas con contenido
+
+    *Estructura básica de HTML
+        <html>
+            <head>
+                //Metadatos (Formato, debemos definirlo, no viene como UTF-8 por default)
+                //Importaciones (scripts, css, fonts, etc.)
+                //Título de la página
+            </head>
+            <body>
+                //Contenido de la página
+            <body>
+        </html>
+
+    *Escribir todas las etiquetas de HTML que recordemos y pongamos algunas características de ellas
+        <link type="" src="">: Sirve para importar librerías de estilos o fuentes. Se pone en el head
+        <a href ="">: Crear anclajes a un enlace/link (Hipervínculo). Es un elemento en línea (inline) y viene por defecto con el texto subrayado, azul y cuando se visita cambia de color, un cursor de mano (Pointer)
+        <header>: El encabezado. Es la parte principal del body. Es un bloque.
+        <main>: Es el contenido principal del body. Es un bloque.
+        <footer>: Es el pie de página del body. Es un bloque.
+        <body>: Cuerpo de la página. Es todo el contenido de la página.
+        <html>: Define el documento como un HTML (Hyper Text Markup Language)
+        <ol>: Lista ordenada. Es un bloque pero tiene cierto márgenes y numera/ordena los elementos. Su contenido deben ser solo <li>
+        <li>: Elemento de la lista (<ol> o <ul>)
+        <ul>: Lista no ordenada. Es un bloque con ciertos márgenes y solo acumula los elementos con un símbolos (bullet, asterisco, estrellas, etc.)
+        <tr>: Define una fila de una tabla. Son bloques.
+        <td>: Define una celda de un tr. Son inline.
+        <table>: Es una tabla de contenido. Se divide en renglones y celdas. Es un bloque
+        <section>: Son parte de la semántica. Subdividen el contenido de un elemento. Son bloques.
+        <article>: Son parte de la semántica. Subdividen el contenido de un elemento. Son bloques.
+        <div>: Es un divisor. Es un bloque.
+        <button>: Representa un botón. Es inline.
+        <input>: Nos permiten entrada de datos. Son inline. Cambian de acuerdo al atributo type.
+            *text: Todo input por default es type="text". Es una caja de texto.
+            *checkbox: Casilla seleccionable.
+            *radio: Es un botón que al seleccionar una opción, desmarca otra. Solo se puede escoger 1 de N.
+            *button: Representa un botón. En el atributo value se pone el texto del botón.
+            *date: Es un calendario para seleccionar una fecha. El atributo value representa la fecha que querramos.
+            *file: Es un botón para seleccionar un archivo de la computadora.
+            *color: Es un selector de colores.
+            *submit: Es el botón que acciona un form.
+            *reset: Limpia todos los campos de un form.
+        <form>: Es un formulario para recopilar datos. Siempre lleva dentro inputs, selects, textarea... Internamente los forms obtienen una lista de los valores que se le asignan, dependiendo del valor atributo method (GET, POST). Para esto los campos deben tener el atributo name asignado. Debe llevar un botón submit para accionar el formulario.
+        <select>: Es una lista de opciones. Su contenido son puros <option>.
+        <textarea>: Es una caja de texto más amplia y multilínea
+        <img>: Representa la imagen que querramos poner con el atributo src. Es inline y toma el tamaño de la imagen si no le definimos uno.
+
+CSS
+Conceptos básicos
+    *Qué significa CSS
+        -Cascading Style Sheet (Hoja de estilos en cascada)
+
+    *Porqué se le dice "en cascada"
+        -Va en orden modificando de arriba hacia abajo.
+
+    *Qué es un regla de CSS
+        -Conjunto de propiedades definidas para un selector.
+
+    *Qué es un selector
+        -Representa uno o varios elementos del HTML
+
+    *Cómo se define una clase
+        -> .NombreClase, .Nombre-Clase, .NombreClase1, ._NombreClase
+
+    *Cómo se pone el selector para ID's
+        -> #IDElemento
+
+    *Qué es un nodo
+        -Es un elemento
+
+    *Mencionar algunos selectores de nodos
+        -Seleccionar todos los nodos de un tipo:
+            *SELECTOR, SELECTOR OTROSELECTOR, .CLASE, .CLASE OTROSELECTOR, #ID, #ID OTROSELECTOR
+                h1 {}
+                .clase {}
+                #id {}
+                div p {}
+                .clase p {}
+                .clase .clase2 {}
+                #id p {}
+        -Seleccionar el nodo inmediatamente dentro de una etiqueta
+            *Ejemplo: Un p que esté directamente dentro de un div
+                div > p {}
+                <div>
+                    <h2></h2>
+                    <p></p>
+                </div>
+
+                NO aplica para:
+                <div>
+                    <section>
+                        <h2></h2>
+                        <p></p>
+                    </section>
+                </div>
+
+        *Menciona los pseudoelementos
+            -> ::first-letter
+            -> ::first-line
+            -> ::selection
+            -> ::before
+            -> ::after
+
+        *Menciona algunas de las pseudoclases
+            -> :first-child
+            -> :last-child
+            -> :nth-child(n)
+            -> :hover
+
+        *Definir una regla para todos los párrafos dentro de un divisor que está en una sección con la clase "Principal".
+            -HTML:
+                <section class="Principal">
+                    <div>
+                        <article>
+                            <p></p>
+                            <p></p>
+                        </article>
+                    </div>
+                </section>
+
+            -Regla CSS:
+                section.Principal div p {}
+
+        *Definir una regla para seleccionar el primer elemento de una lista no ordenada que se encuentra dentro del header de un elemento de la clase "tarjeta":
+            -HTML:
+                <div class="tarjeta">
+                    <header>
+                        <ul>
+                            <li>Elemento 1
+                            <li>Elemento 2
+                            <li>Elemento 3
+                            <li>Elemento 4
+                        </ul>
+                    </header>
+                </div>
+
+            -Regla CSS:
+                -> .tarjeta header ul li:first-child {}
+                -> .tarjeta header ul li:nth-child(1) {}
+
+        *Qué es una propiedad de CSS
+            -Es una propiedad de estilo del elemento
+            Ejemplo:
+                -> color: red;
+                -> background: blue;
+                -> width: 50%;
+
+        *Crear una regla para el primer span dentro de un párrafo con clase "Descripcion" que se encuentra dentro de un div. El div está dentro de un article, pero ese article es el hijo inmediato de una sección con id "Inicio".
+            -HTML
+                <section id="Inicio">
+                    <article>
+                        <div>
+                            <p class="Descripcion">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </p>
+                        </div>
+                    </article>
+                </section>
+
+            -Regla CSS
+                #Inicio > article div p.Descripcion span:first-child {}
+
+        *A la regla anterior vamos a definir los siguiente estilos:
+            -> Debe tener un color de texto verde
+            -> Debe tener una fuente de tamaño de 2 rem
+            -> Debe tener un borde negro de 1 px de grosor
+            -> Debe tener una imagen de fondo que se ajuste a su tamaño
+            -> Su tamaño será de 300px de ancho y 180px de altura
+
+            #Inicio > article div p.Descripcion span:first-child {
+                color: green;
+                font-size: 2rem;
+                border: 1px solid black;
+                background-image: url('http://image.png');
+                background-size: 100% 100%;
+                width: 300px;
+                height: 180px;
+            }
+
+        *Describir la diferencia entre Margin, Border y Padding:
+            -Margin: Separación entre las orillas de la figura y lo que está afuera.
+            -Padding: Es el espaciado interno del elemento. De los bordes hacia dentro.
+            -Border: Es visible, se dibuja y se puede manipular. Son las orillas del elemento.
+
+        *Tipos de display:
+            -block: width 100%. No tiene altura.
+            -inline-block: Va en línea, tiene un pequeño margen. Se usa para separar palabras, texto. Se le puede cambiar el tamaño.
+            -inline: Va en línea, pero no se le pueden dar márgenes ni tamaño.
+            -table: Es un bloque que permitirá alinear elementos con display table-row y table-cell. Habilita el vertical-align
+            -table-row: Crear un bloque del tipo row para un display table. Se autoajustan, al número de divisiones por tabla.
+            -table-cell: Crear un bloque del tipo cell para un display table-row. Se autoajustan, al número de divisiones por tabla.
+
+        *Flotar elementos:
+            -Acomoda los elementos flotando desde la parte superior (Izquierda o derecha)
+            -Para limpiarlo hay que usar un clear
+
+        *Posicionamientos:
+            -Le indica a un elemento que se puede mover en base a las coordenadas top, left, bottom o right de un elemento relativo más cercano...
+            Para esto es necesario tener un elemento con posición relativa y todos los elementos siguientes con posición absoluta se moverán dentro de ese contenedor.
+                -> position: absolute. Activa las coordenadas top, left, bottom y right.
+                -> position: relative. No cambia mucho, solo le permite al elemento ser un contenedor que acepte elementos absolute.
+                -> position: fixed. Al igual que el absolute, se posiciona sobre la ventana del HTML, pero su posición siempre será fija en la pantalla...
+                -> position: sticky. Al igual que el absolute, se posiciona sobre la ventana del HTML, pero su posición siempre será fija en la pantalla... Este respeta el tamaño de su elemento.
+
+Javascript
+Conceptos básicos
+
+    *Qué es Javascript
+        -Es un lenguaje funcional de programación (Web). Es un lenguaje interpretado.
+
+    *Cuales tipos de datos tenemos en Javascript
+        -String
+        -Boolean
+        -Number
+        -Array
+        -Object
+
+    *Como se clasifican los tipos de datos
+        -Primitivos: String, Boolean, Number
+        -Complejos: Array, Object
+
+    *Diferencia entre variables y constantes
+        -variable: su valor cambia, es variable
+        -constante: su valor prevalece y lanza un error si se intenta cambiar
+
+    *Que es una funcion
+        - es una serie de pasos para realziar una acion
+        - puede recibir parametros
+        - puede regresar valores

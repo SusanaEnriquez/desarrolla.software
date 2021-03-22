@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajedrez</title>
+    <style>
+        body,
+        html {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            /*oculta todo lo que se sale de del contenido       */
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        /* Opcion 1 */
+        .cuadro-negro {
+            height: 20vh;
+            width: 20vw;
+            background: black;
+            float: left;
+        }
+
+        .cuadro-blanco {
+            height: 20vh;
+            width: 20vw;
+            background: white;
+            float: left;
+        }
+
+        /* Opcion 2 */
+        .cuadro {
+            height: 20vh;
+            width: 20vw;
+            float: left;
+        }
+
+        .negro {
+            background: black;
+        }
+
+        .blanco {
+            background: white;
+        }
+
+        /* Clase padre */
+        .padre {
+            overflow: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Opcion 1 -->
+    <div class="cuadro-negro"></div>
+    <div class="cuadro-blanco"></div>
+    <div class="cuadro-negro"></div>
+    <div class="cuadro-blanco"></div>
+    <div class="cuadro-negro"></div>
+
+    <div class="cuadro-blanco"></div>
+    <div class="cuadro-negro"></div>
+    <div class="cuadro-blanco"></div>
+    <div class="cuadro-negro"></div>
+    <div class="cuadro-blanco"></div>
+
+    <!-- Opcion 2 -->
+    <div class="cuadro negro"></div>
+    <div class="cuadro blanco"></div>
+    <div class="cuadro negro"></div>
+    <div class="cuadro blanco"></div>
+    <div class="cuadro negro"></div>
+
+    <div class="cuadro blanco"></div>
+    <div class="cuadro negro"></div>
+    <div class="cuadro blanco"></div>
+    <div class="cuadro negro"></div>
+    <div class="cuadro blanco"></div>
+
+    <!-- Clase padre -->
+    <div class="padre">
+        <div class="cuadro negro"></div>
+        <div class="cuadro blanco"></div>
+        <div class="cuadro negro"></div>
+        <div class="cuadro blanco"></div>
+        <div class="cuadro negro"></div>
+    </div>
+
+
+
+
+</body>
+
+</html>

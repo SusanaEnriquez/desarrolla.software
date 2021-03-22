@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+    <style>
+        span{
+            padding: 0.5rem;
+            background-color: darkgray;
+            font-style: italic;
+
+            transition: color 1s, background 1s, border-radius 2s;
+        }
+
+        span::before{
+            /* Esto no se va a poder seleccionar */
+            color: darkgoldenrod;
+            content: "!";
+        }
+
+        span::after{
+            /* Esto no se va a poder seleccionar */
+            color: darkgoldenrod;
+            content: ":)";
+        }
+
+        p::first-letter{
+            font-weight: bold;
+            color: darkorchid;
+        }
+        
+        p::first-line{
+            color: darkturquoise;
+        }
+
+        *::selection{
+            background-color: deeppink;
+            color: white;
+        }
+
+        span:hover{
+            color: white;
+            background-color: black;
+            border-radius: 100%;
+
+            transition: color 1s, background 1s, border-radius 2s;
+        }
+    </style>
+    <title>Componentes Bootstrap</title>
+</head>
+<body>
+    <span>Hola</span>
+    <span>Hola</span> <br>
+    <p>Este es el <br> parrafo</p> <br>
+    <h1>Botones</h1>
+    <button class="btn btn-outline-primary btn-lg d-block" disabled> Click!</button>
+    <input class="btn btn-secondary btn-sm" type="button" value="Click!">
+
+    
+</body>
+</html>

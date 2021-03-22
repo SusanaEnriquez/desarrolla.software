@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+</head>
+
+<!-- ctrl+shift+p command palette en view, buscamos beautify file para dar formato al documento -->
+<!--ctrl+espacio para ver los elementos que podemos usar-->
+
+<body>
+    <form action="" method="">
+        <!-- action=" " a donde o de donde vamos a enviar/obtener info
+             method="GET" recibir informacion
+             method="POST" enviar informacion -->
+
+        <h3>Elementos para escribir texto</h3>
+
+        <input type="text" value="Contenido" name="A"> <!-- caja de texto simple (una sola linea)-->
+        <!-- con el atributo name le damos nombre a las variables y estas se agregan a la url -->
+        <br><br>
+
+        <textarea name="" id="" cols="30" rows="10">Este es el contenido</textarea>
+        <!--define cuantos caracteres podemos escribir en la caja de texto en este son 30 por renglon-->
+        <br><br>
+
+        <input type="password">
+        <br><br>
+
+        <input type="button" value="click me :)">
+        <button>Click me (etiqueta button)</button>
+        <br><br>
+
+        <input type="checkbox" checked>
+        <br><br>
+
+        <input type="color" value="#FADDC2">
+        <!--escoger color-->
+        <br><br>
+
+        <input type="date" value="2021-02-18">
+        <!-- <input type="datetime"> -->
+        <br><br>
+
+        <input type="email">
+        <br><br>
+
+        <input type="file">
+        <!--es para explorar los archivos de la computadora-->
+        <br><br>
+
+        <input type="number" value="5" min="-10" max="10">
+        <!--se pueden poner numeros manualmente o usar las flechas que aparecen-->
+        <br><br>
+
+        <input type="radio" checked>
+        <input type="radio">
+        <br><br>
+
+        <input type="reset" value="Clear">
+        <!--solo sirve dentro de un form-->
+        <input type="submit" value="Send">
+        <br><br>
+
+        <select name="Sexo">
+            <option value="H">Hombre</option>
+            <option value="M">Mujer</option>
+        </select>
+    </form>
+
+    <br> <br> <br>
+    <h3>Actividad - Formulario de registro</h3>
+    <form>
+        Nombre: <input type="text" placeholder="Escribe tu nombre" required>
+        <br>
+
+        Apellido Paterno: <input type="text" placeholder="Escribe tu Apellido Paterno" required>
+        <br>
+
+        Apellido Materno: <input type="text" placeholder="Escribe tu Apellido Materno" required>
+        <br>
+
+        Fecha de nacimiento: <input type="date" required>
+        <br>
+
+        Genero: <select name="Sexo" required>
+                    <option value="H">Hombre</option>
+                     <option value="M">Mujer</option>
+              </select>
+        <br>
+
+        Nombre usuario: <input type="text" placeholder="Escribe tu nombre de usuario" required>
+        <br>
+
+        Contraseña: <input type="password" required>
+        <br>
+
+        Acepto los terminos: <input type="checkbox" required>
+        <br>
+
+        Enviar recomendaciones <input type="checkbox" checked>
+        <input type="submit" value="Send">
+</body>
+
+</html>

@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tablas</title>
+</head>
+<body>
+    <table border> <!-- Solo se puede utilizar un solo tipo de elemento a la vez -->
+        <thead>
+            <tr>
+                <th>A</th> <!-- Titulo de columna -->
+                <th>B</th>
+                <th>C</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr> <!-- Renglon -->
+                <td>A1</td>  <!-- Celda -->
+                <td>A2</td>
+                <td>A3</td>
+            </tr>
+
+            <tr> <!-- Renglon -->
+                <td>B1</td>  <!-- Celda -->
+                <td>B2</td>
+                <td>B3</td>
+            </tr>
+
+            <tr> <!-- Renglon -->
+                <td>C1</td>  <!-- Celda -->
+                <td>C2</td>
+                <td>C3</td>
+            </tr>
+        </tbody>
+    </table>
+
+
+
+    
+    <br><br>
+    <h2>Actividad Tablas</h2>
+    <table border>
+        <thead>
+            <tr>
+                <th>Hobby</th> <!-- Titulo de columna -->
+                <th>Descripcion</th>
+                <th>Imagen</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Musica</td>
+                <td>Me gusta tocar el teclado, descubrir musica nueva</td>
+                <td><img height="50px" width="70px" src="https://tecladomusical.online/wp-content/uploads/2019/04/que-es-un-teclado-musical-e1554832800773.jpg" alt="teclado"></td>
+            </tr>
+
+            <tr>
+                <td>Fotografia</td>
+                <td>Me gusta tomar fotos, en especial de paisajes, el cielo y la narutaleza</td>
+                <td><img height="50px" width="70px" src="https://trabajarporelmundo.org/wp-content/uploads/2018/05/curso-de-fotografia-online-y-gratuito-del-MoMa.jpg" alt="Fotografia"></td>
+            </tr>
+
+            <tr>
+                <td>Netflix</td>
+                <td>Me gusta ver peliculas y series</td>
+                <td><img height="50px" width="70px" src="https://www.tendencias.mx/wp-content/uploads/2018/12/netflix-1.jpg" alt="Pelis"></td>
+            </tr>
+        </tbody>
+    </table>
+
+
+
+    <br><br>
+    <h2>Rowspan(horizontal) y Colspan(vertical</h2>
+    <table border>
+        <thead>
+            <tr>
+                <th>Tipo</th> <!-- Titulo de columna -->
+                <th>Producto</th>
+                <th>Precio</th>
+                <th>Stock</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td rowspan="2">Laptops</td>
+                <td colspan="3">HP Omen</td>
+                <td>16,799</td>
+                <td>12</td>
+            </tr>
+            <tr>
+                <td>HP Envy</td>
+                <td>11,799</td>
+                <td>7</td>
+            </tr>
+        </tbody>
+    </table>
+
+
+    <br><br>
+    <h2>Actividad Rowspan y Colspan</h2>
+    <table border>
+            <tr>
+                <td>1</td> 
+                <td>2</td>
+                <td>3</td>
+                <td>4</td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>6</td>
+                <td>7</td>
+                <td>8</td>
+            </tr>
+            <tr>
+                <td>9</td>
+                <td>10</td>
+                <td>11</td>
+                <td>12</td>
+            </tr>
+            <tr>
+                <td>13</td>
+                <td>14</td>
+                <td>15</td>
+                <td>16</td>
+            </tr>
+    </table>
+
+    <br>
+    <table border>
+        <tr>
+            <td colspan="2" >1</td> 
+            <!-- <td>2</td> -->
+            <td>3</td>
+            <td>4</td>
+        </tr>
+        <tr>
+            <td>5</td>
+            <td>6</td>
+            <td colspan="2">7</td>
+            <!-- <td>8</td> -->
+        </tr>
+        <tr>
+            <td colspan="2">9</td>
+            <!-- <td>10</td> -->
+            <td>11</td>
+            <td>12</td>
+        </tr>
+        <tr>
+            <td>13</td>
+            <td>14</td>
+            <td colspan="2">15</td>
+            <!-- <td>16</td> -->
+        </tr>
+</table>
+
+<br>
+<table border>
+    <tr>
+        <td colspan="2" >1</td> 
+        <!-- <td>2</td> -->
+        <td colspan="2">3</td>
+        <!-- <td>4</td> -->
+    </tr>
+    <tr>
+        <td  rowspan="2">5</td>
+        <td>6</td>
+        <td>7</td>
+        <td  rowspan="2">8</td>
+    </tr>
+    <tr>
+        <!-- <td>9</td> -->
+        <td>10</td>
+        <td>11</td>
+        <!-- <td>12</td> -->
+    </tr>
+    <tr>
+        <td colspan="2">13</td>
+        <!-- <td>14</td> -->
+        <td colspan="2">15</td>
+        <!-- <td>16</td> -->
+    </tr>
+</table>
+
+<br>
+<h2>Actividad frutas</h2>
+<table border>
+    <tr>
+        <td colspan="2" ><a href="https://es.wikipedia.org/wiki/Mango_(fruta)"><img height="30px" width="60px" src="https://cdn1.frutapasion.es/wp-content/uploads/2019/09/mango-01a.jpg" alt="Mango"></a></td> 
+        <!-- <td>2</td> -->
+        <td colspan="2"><a href="https://es.wikipedia.org/wiki/Uva"><img height="30px" width="60px" src="https://knowi.es/wp-content/uploads/2014/11/shutterstock_150818810-1000x640.jpg" alt="Uva"></a></td>
+        <!-- <td>4</td> -->
+    </tr>
+    <tr>
+        <td  rowspan="2"><a href="https://es.wikipedia.org/wiki/Naranja"><img height="60px" width="30px" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRz24UboHWY2woDzFrhyu0f8s77wWy2zdU5iw&usqp=CAU" alt="Naranja"></a></td>
+        <td><a href="https://es.wikipedia.org/wiki/Platano"><img height="30px" width="30px" src="https://www.carreraspormontana.com/images/sites/2/2016/05/2016-05-12_120117.jpg" alt="Platano"></a></td>
+        <td><a href="https://es.wikipedia.org/wiki/Fragaria"><img height="30px" width="30px" src="https://www.solucionesparaladiabetes.com/magazine-diabetes/wp-content/uploads/fresas.jpg" alt="Fresa"></a></td>
+        <td  rowspan="2"><a href="https://es.wikipedia.org/wiki/Pi%C3%B1a"><img height="60px" width="30px" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSBJIqbopkgwsKq_Lme21BqPVe7ydBEvnwP5A&usqp=CAU" alt=Piña></a></td>
+    </tr>
+    <tr>
+        <!-- <td>9</td> -->
+        <td><a href="https://es.wikipedia.org/wiki/Citrullus_lanatus"><img height="30px" width="30px" src="https://www.hogarmania.com/archivos/201607/salud-sandia-propiedades-668x400x80xX.jpg" alt="Sandia"></a></td>
+        <td><a href="https://es.wikipedia.org/wiki/Pepino"><img height="30px" width="30px" src="https://cdn2.cocinadelirante.com/sites/default/files/styles/gallerie/public/images/2017/06/pepino.jpg" alt="Pepino"></a></td>
+        <!-- <td>12</td> -->
+    </tr>
+    <tr>
+        <td colspan="2"><a href="https://es.wikipedia.org/wiki/Manzana"><img height="30px" width="60px" src="https://cdn.aarp.net/content/dam/aarp/health/healthy-living/2017/09/1140-3-reasons-apples-good-for-you-esp.imgcache.revae3b640328123dd3384e316a910b3602.jpg" alt="Manzana"></a></td>
+        <!-- <td>14</td> -->
+        <td colspan="2"><a href="https://es.wikipedia.org/wiki/Citrus_%C3%97_limon"><img height="30px" width="60px" src="https://www.eluniversal.com.mx/sites/default/files/2020/08/21/limon-beneficios.jpg" alt="Limon"></a></td>
+        <!-- <td>16</td> -->
+    </tr>
+</table>
+</body>
+</html>

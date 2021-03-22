@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nuevas etiquetas</title>
+</head>
+
+<body>
+    <h2>Opcion 1 - Audio</h2>
+    <audio src="http://sunsite.icm.edu.pl/ftp/pub/music/mp3/1428/Sound%20Players%20-%20Sunrise.mp3" controls="controls"
+        autoplay="true" loop></audio>
+    
+    
+    <h2>Opcion 2 - Audio</h2>
+    <audio controls autoplay loop preload="auto">
+        <!-- Opciones de audio que puede tomar el navegador dependiendo de cual este disponible y que mostrar si ninguno esta disponible -->
+        <source src="cancion.mp3" type="audio/mpeg">
+        <source src="cancion.ogg" type="audio/ogg">
+        Your browser do not support audio!
+        </audio>
+    <br><br>
+
+        <h2>Video</h2>
+    <video width="320" height="240" controls>
+        <!-- Opciones de video que puede tomar el navegador dependiendo de cual este disponible y que mostrar si ninguno esta disponible -->
+        <source src="movie.mp4" type="video/mp4">
+        <source src="movie.ogg" type="video/ogg">
+        Your browser do not support video!
+    </video>
+    <br><br>
+
+    <h2>Canvas</h2>
+    <h3>El canvas nos ayuda a dibujar dentro de un lienso</h3>
+    <canvas id="MyCanvas" width="200" height="100" border:1px solid #000000></canvas>
+    <p>
+           Codigo JavaScript: <br>
+           <...script...> <br>
+                var c= document.getElementById("MyCanvas"); <br>
+                var ctx=c.getContext("2d"); <br>
+                ctx.fillStyle="#FF0000"; <br>
+                ctx.fillRect(0,0,150,75); <br>
+            <.../script...>
+    </p>
+
+        <script>
+            var c= document.getElementById("MyCanvas");
+            var ctx=c.getContext("2d"); 
+            ctx.fillStyle="#FF0000"; 
+            ctx.fillRect(0,0,150,75);
+        </script>
+
+        <br><br>
+
+        <h3>SVG</h3>
+        <svg width="200" height="200">
+            <rect fill="rgb(0,0,255)"
+            x="10"
+            y="10"
+            width="180"
+            height="180" />
+        </svg>
+</body>
+
+</html>

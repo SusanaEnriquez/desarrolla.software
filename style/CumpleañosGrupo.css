@@ -1,0 +1,70 @@
+body,
+html {
+    width: 100%;
+    height: 100%;
+    margin: 0%;
+    padding: 0%;
+    font-size: 1.2rem;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.Tarjeta {
+    width: 30vw;
+    height: 20vw;
+    border: 2px solid black;
+    border-radius: 2%;
+    text-align: center;
+    float: left;
+    margin-bottom: 1rem;
+    margin-right: 1rem;
+}
+
+.Tarjeta header {
+    height: 15%;
+    text-align: center; 
+    border-bottom: 2px solid black;
+} 
+
+.Tarjeta main{
+    height: 85%;
+}
+
+.Tarjeta main section:first-child{
+    padding-top: 0.5rem;
+    padding-right: 0.5rem;
+    height: 70%;
+}
+
+.Tarjeta main section:last-child{
+    height: 30%;
+}
+
+.Tarjeta .datos{
+    float: left;
+    text-align: right;
+    padding-right: 0.5rem;
+    width: 70%;
+    height: 100%;
+}
+
+.Tarjeta .imagen{
+    float: left;
+    background: rosybrown;
+    width: 30%;
+    height: 100%;
+}
+
+.table{
+    display: table;
+    height: 100%;
+    width: 100%;
+}
+
+.table-cell{
+    display: table-cell;
+    vertical-align: middle;
+}
+

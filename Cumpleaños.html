@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cumpleaños</title>
+    <style>
+        body,
+        html {
+            width: 100%;
+            height: 100%;
+            margin: 0%;
+            padding: 0%;
+            /* se utilizan para quitar el estilo predeterminado de la pagina y empezar en blanco  */
+        }
+
+        * {
+            box-sizing: border-box;
+            /* evita que el border, margin y padding cambien el tamaño del elemento */
+        }
+
+        .Tarjeta {
+            width: 28rem;
+            height: 28rem;
+            display: inline-block;
+            border: 2px solid black;
+            /* border-radius: 100%; circulo */
+            border-radius: 2%;
+            text-align: center;
+        }
+
+        .estrella {
+            float: right;
+        }
+
+        .estrella img {
+            width: 1rem;
+            height: 1rem;
+        }
+
+        div.Tarjeta header h3 {
+            padding-right: 1rem;
+            text-align: center;
+            border-bottom: 2px solid black;
+            margin: 0;
+            margin-top: 5px;
+            margin-bottom: 5px;
+        }
+
+        .imagen-usuario {
+            display: inline-block;
+            background-image: url(https://img.icons8.com/bubbles/2x/user-male.png);
+            width: 60%;
+            height: 18rem;
+            /* background-size: 100% 100%; */
+            background-size: cover;
+        }
+
+        .detalles {
+            padding: 3rem;
+            float: right;
+            width: 40%;
+            height: 18rem;
+        }
+
+        .clear {
+            clear: both;
+        }
+
+        .Tarjeta footer {
+            padding-top: 1rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="Tarjeta">
+        <header>
+            <h3>Cumpleaños
+                <div class="estrella">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Gold_Star.svg/1200px-Gold_Star.svg.png"
+                        alt="estrella">
+                </div>
+            </h3>
+        </header>
+        <main>
+            <div class="imagen-usuario"></div>
+            <div class="detalles">
+                <h3>Susana</h3>
+                <h4>Enriquez</h4>
+                <h4>Godina</h4>
+                <h4>03/03/2001</h4>
+            </div>
+            <div class="clear"></div>
+        </main>
+        <footer>
+            Me gustaria que me regalaran un pastel
+        </footer>
+    </div>
+
+
+    <div class="Tarjeta">
+        <header>
+            <h3>Cumpleaños
+                <div class="estrella">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Gold_Star.svg/1200px-Gold_Star.svg.png"
+                        alt="estrella">
+                </div>
+            </h3>
+        </header>
+        <main>
+            <div class="imagen-usuario"></div>
+            <div class="detalles">
+                <h3>Susana</h3>
+                <h4>Enriquez</h4>
+                <h4>Godina</h4>
+                <h4>03/03/2001</h4>
+            </div>
+            <div class="clear"></div>
+        </main>
+        <footer>
+            Me gustaria que me regalaran un pastel
+        </footer>
+    </div>
+</body>
+
+</html>

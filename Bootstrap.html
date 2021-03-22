@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous">
+    </script>
+   
+    <style>
+    h1{
+        font-size: 3rem;
+        font-style: italic;
+    }
+
+    .cuadro-verde{
+        height: 10rem;
+        background: greenyellow;
+    }
+
+    .cuadro-azul{
+        height: 10rem;
+        background: deepskyblue;
+    }
+
+    .cuadro-naranja{
+        height: 10rem;
+        background: orange;
+    }
+
+    /* Queries */
+    .cuadro-morado{
+        height: 10rem;
+        background: darkorchid;
+        border: 1px solid darkviolet;
+    }
+    /* Queries
+    @media(min-width: 1000px){
+        body{
+            background-color: darkorchid;
+            background-color: gray;
+            color: white;
+        }
+    }
+    } */
+    </style>
+
+<title>Bootstrap</title>
+<body>
+    
+    <header></header>
+    <main class="container">
+        <div class="row mb-1">
+            <div class="cuadro-verde col-12 col-md-4"></div>
+            <div class="cuadro-azul col-8 col-md-4"></div>
+            <div class="cuadro-naranja col-4 col-md-4"></div>
+        </div>
+
+    <main class="container"></main>
+        <h1>Hola :)</h1>
+        <div class="row">
+            <div class="cuadro-morado col-sm-2 col-lg-12"></div>
+            <div class="cuadro-morado col-sm-2 col-lg-12"></div>
+            <div class="cuadro-morado col-sm-2 col-lg-12"></div>
+            <div class="cuadro-morado col-sm col-lg-12"></div>
+            <div class="cuadro-morado col-sm col-lg-12"></div>
+            <div class="cuadro-morado col-sm col-lg-12"></div>
+            <!-- Poner el 2 en sm es opcional, ya que como son 6 cuadros automaticamente le da ese tamaño -->
+        </div>
+    </main>
+    <footer></footer>
+
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cuadros de Colores</title>
+    <style>
+        .cuadro{
+            width: 15rem;
+            height: 15rem;
+            border: 2px solid black;
+            position: absolute;
+        }
+
+        .morado{
+            background: purple;
+            left: 3rem;
+            top: 3rem;
+        }
+
+        .verde{
+            background: green;
+            left: 8rem;
+            top: 8rem;
+        }
+
+        .naranja{
+            background: orange;
+            left: 13rem;
+            top: 13rem;
+        }
+
+        .rosa{
+            background: pink;
+            left: 18rem;
+            top: 18rem;
+        }
+
+        .cuadrito{
+            width: 1rem;
+            height: 1rem;
+            background: gray;
+            position: absolute;
+        }
+
+        .gris-izquierda{
+            left: 2rem;
+            top: 2rem;
+        }
+
+        .gris-derecha{
+            right: 2rem;
+            top: 2rem;
+        }
+
+        .gris-izquierda-abajo{
+            left: 2rem;
+            bottom: 2rem;
+        }
+
+        .gris-derecha-abajo{
+            right: 2rem;
+            bottom: 2rem;
+        } 
+    </style>
+</head>
+<body>
+    Las posiciones absolutas te habilitan que te puedas mover por coordenadas (left,right,top,bottom) y a parte te va a buscar el relativo mas cercano
+    <br><br>
+    <div class="cuadro morado">
+        <div class="cuadrito gris-izquierda"></div>
+    </div>
+
+    <div class="cuadro verde">
+        <div class="cuadrito gris-derecha"></div>
+    </div>
+
+    <div class="cuadro naranja">
+        <div class="cuadrito gris-izquierda-abajo"></div>
+    </div>
+
+    <div class="cuadro rosa">
+        <div class="cuadrito gris-derecha-abajo"></div>
+    </div>
+</body>
+</html>
