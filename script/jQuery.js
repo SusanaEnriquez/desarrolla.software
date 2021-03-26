@@ -1,14 +1,17 @@
 // Eventos
 // Evento que permite saber cuando ya se termino de cargar el contenido
-// window.onload = function(event){
-//     var titulo = document.getElementById('titulo');
-//     titulo.innerText = "Modificado con JS";
-// };
 
-/* EJEMPLO
+/*
+window.onload = function(event){
+     var titulo = document.getElementById('titulo');
+     titulo.innerText = "Modificado con JS";
+};
+*/
+
+/* EJEMPLOS
 function Revisar(texto,ejecutarAlgo){
     if (texto === 'exec'){
-        ejecutarAlgo();
+         ejecutarAlgo(); //Callback
     }
 }
 
@@ -17,46 +20,92 @@ Revisar('exec', function(){
 });
 
 Revisar('exec', function(){
-   console.log("ytrfdsdfg");
+  console.log("ytrfdsdfg");
+});
+*/
+
+/*
+window.addEventListener('load', function(event){
+    var titulo = document.getElementById('titulo');
+    titulo.innerText = "Modificado con JS";
 });
 */
 
 
-window.addEventListener('load', function(event){
-    var titulo = document.getElementById('titulo');
-     titulo.innerText = "Modificado con JS";
-});
-
 //  jQuery tiene dos formas de usar:
-    //  Como objeto con funciones de complemento
-    //  Como funcion de apoyo y busqueda
-
+     //  Como objeto con funciones de complemento
+     //  Como funcion de apoyo y busqueda
 // Cuando es funcion se puede utilizar de dos maneras:
-    // $('SELECTOR) -> Regresar elementos jQueryHTML
-    // $(function) -> evebto de onload
+     // $('SELECTOR) -> Regresar elementos jQueryHTML
+     //  $(elemento) -> Regresar elementos jQueryHTML
+     // $(function) -> evebto de onload
 
+
+
+//  COMO SELECTOR
 $(function(){
-    $('#titulo').text('Modificado con jQuery');
-    // var titulo = document.getElementById('titulo');
-    // titulo.innerText = "Mdificado con jQuery";
+/*
+    // $('#titulo').text('Sobrescribir con jQuery'); //Sobreescribe el texto
+    var titulo = document.getElementById('titulo');
+    titulo.innerText = "Modificado con jQuery";
 
-    $('#otro').append('<h2>Modificado :)</h2>');
-    // $('#otro li').text('li encontrado');
-    // var otro = document.getElementById('otro');
-    // otro.innerText += "Mdificado con jQuery";
-    
-    var uls = $('#otro ul')[0];
-    $(ul).find('li').prepend(':)');
-    // var otro = document.getElementById('otro');
-    // var uls = otro.getElementsByTagName('ul');
-    // var ul = uls[0];
+    // $('#otro').html('<h2>Modificado con jQuery :)</h2>'); //Modificar html
+    // $('#otro').append('<h2>Añadido :)</h2>'); //Añadir
+    var otro = document.getElementById('otro');
+    otro.innerHTML += '<h2>Añadido :)</h2>';
 
-    // var lis = ul.getElementsByTagName('li');
-    // for (var i = 0; i < lis.length; i++) {
-    //     const li = lis[i];
-    //     li.innerText = "Encontrado";    
-    // }
-    
+    // var ul = $('#otro ul')[0]; // Solo la primer lista
+    // $(ul).find('li').text('Encontrado'); 
+    var otro = document.getElementById('otro');
+    var uls = otro.getElementsByTagName('ul');
+    var ul = uls[0];
+    var lis = ul.getElementsByTagName('li');
+        for (var i = 0; i < lis.length; i++) {
+            const li = lis[i];
+            li.innerText = "Encontrado (for)";    
+        }
+   
+    $(ul).find('li').prepend('* '); //Poner algo antes del contenido/texto
+*/
+
+
+/*
+var frases = [
+    {
+    texto: "Mi frase",
+    lugar: "Mi casa, ",
+    persona: "SEG"
+},
+{
+    texto: "Primero aprendan la teoria",
+    lugar: "desarrolla.software, ",
+    persona: "El teacher"
+},
+
+{
+    texto: "Asistan al curso plox",
+    lugar: "desarrolla.software,",
+    persona: "Sam"
+},
+];
+
+for (var i = 0; i < frases.length; i++) {
+    const frase = frases[i];
+    $('body').append(`
+    <div class="card">
+        <div class="card-header">
+            Frases Motivacionales
+        </div>
+        <div class="card-body" >
+            <blockquote class="blockquote mb-0">
+                <p>${frase.texto}</p>
+                <footer class="blockquote-footer"> ${frase.lugar} <cite title="El teacher">${frase.persona}</cite>
+                </footer>
+            </blockquote>
+        </div> 
+    </div>`);
+};  
+*/
 
 // ACTIVIDAD 1.1
 var listaSuper=[
@@ -98,26 +147,25 @@ var listaSuper=[
     }
 ];
 
-('body').append('<ul class="list-group"></ul');
-$.each(lista, function(i, producto){
-    $('.list-group').append(
+// Sin jQuery
+/* $('body').append('<ul class="list-group"></ul>');
+for (var i = 0; i < listaSuper.length; i++) {
+    const producto = listaSuper[i];
+
+    $('.list-group').append(`
         <li class="list-group-item list-group-item-secondary">
-            ${producto.nombre} - $${producto.precio} ($producto.peso}kg)
-    )
+            ${producto.nombre} - $${producto.precio} (${producto.pesoKg}kg)
+        </li>`);
+};
+*/
+
+// con jQuery
+$('body').append('<ul class="list-group"></ul>');
+$.each(listaSuper, function(i, producto){
+    $('.list-group').append(`
+        <li class="list-group-item list-group-item-secondary">
+            ${producto.nombre} - $${producto.precio} (${producto.pesoKg}kg)
+        </li>`
+    );
 })
-
-/*</li>$('body').append('<ul class="list-group"></ul');
-for (var i = 0; i < lista.length; i++) {
-    const producto = lista[i];
-
-    $('.list-group').append(
-        <li class="list-group-item list-group-item-secondary">
-            ${producto.nombre} - $${producto.precio} ($producto.peso}kg)
-        </li>
-    )
-    
-}*/
 });
-
-
-

@@ -263,3 +263,20 @@ Conceptos básicos
         - es una serie de pasos para realziar una acion
         - puede recibir parametros
         - puede regresar valores
+
+
+
+jQuey 
+Es una librería multi browser que funciona de la misma manera en cualquier browser y/o dispositivo
+    * Su uso mas fuerte o principal es recorrer, buscar y manipular el DOM
+    * Puede buscar elementos de la siguiente manera:
+        - por id
+        - por etiquetas
+    Pero todo lo hace por SELECTORES (clases, por id, nombre, ubicaciones div p p, div p > span)
+    #ID{    }
+    $('.clase)
+
+
+
+
+    

@@ -7,7 +7,9 @@ h2.innerText = "Enriquez";
 var lis = document.getElementsByTagName("li");
 lis[0].innerText += " 03/03/2001";
 lis[1].innerText += " Mujer";
-lis[2].innerText += " 20";
+lis[2].innerText += 20;
+
+
 
 
 var card_title = document.getElementById("title");
@@ -15,28 +17,32 @@ card_title.innerText = "Frases Motivacionales";
 
 var card = document.getElementById ("frase");
 var p = card.getElementsByTagName ("p");
-p[0].innerText = "Esta frase debe motivarte";
+p[0].innerText = "Esta frase debe motivarte porque la digo yo :p";
 
 var footer = document.getElementsByTagName ("footer");
-footer[0].innerText = "FORBES ";
-footer[0].innerHTML += "<cite title= El teacher >MGA</cite >";
+footer[0].innerText = "desarrolla.software, "; //Modificamos el texto
+footer[0].innerHTML += "<cite title= name >Susy Enriquez</cite >"; //Agregamos lo que falta
 
+
+
+
+//Generar distintas tarjetas
 var frases = [
     {
-    texto: "Esta frase la digo yo",
-    lugar: "Forbes",
-    persona: "MGA", 
+    texto: "Mi frase",
+    lugar: "Mi casa, ",
+    persona: "SEG"
 },
 {
-    texto: "Aprendan primero",
-    lugar: "NYC",
-    persona: "Kevin", 
+    texto: "Primero aprendan la teoria",
+    lugar: "desarrolla.software, ",
+    persona: "El teacher"
 },
 
 {
-    texto: "Siempre juntos",
-    lugar: "Casa",
-    persona: "Alexis", 
+    texto: "Asistan al curso plox",
+    lugar: "desarrolla.software,",
+    persona: "Sam"
 },
 ];
 
@@ -55,5 +61,5 @@ for (var i = 0; i < frases.length; i++) {
                 </footer>
             </blockquote>
         </div> 
-    </div>`
+    </div>`;
 }

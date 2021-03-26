@@ -1,0 +1,20 @@
+.custom-alert{
+    position: fixed;
+    bottom: 1rem;
+    left: 1rem;
+    width: calc(100% - 2rem); /* Calcula el tamaño de la pagina y le resta 2rem para que se redimensione */
+}
+
+.producto{
+    width: 580px;
+    height: 220px;
+    cursor: pointer;
+    float: left;
+    margin: 2rem;
+}
+
+.producto img{
+    width: 100%;
+    height: 220px;
+    padding: 0.5rem;
+}
