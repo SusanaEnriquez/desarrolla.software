@@ -1,0 +1,120 @@
+body,html{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+}
+
+*{
+    box-sizing: border-box;
+}
+
+/* Lo que hice sola */
+/*
+.circulo{
+    width: 4rem;
+    height: 4rem;
+    border: 2px solid black;
+    border-radius: 100%;
+    float: left;
+    text-align: center;
+}
+
+.linea-horizontal{
+    width: 3rem;
+    height: 1rem;
+    background-color: black;
+    display: inline-block;
+}
+
+.linea-vertical{
+    width: 1rem;
+    height: 3rem;
+    background-color: black;
+    margin-left: 1.5rem;
+}
+
+.rectangulo{
+    width: 8rem;
+    height: 4rem;
+    border: 2px solid black;
+    text-align: center;
+    display: inline-block;
+    margin: 0;
+}
+*/
+
+
+
+/* Lo que hizo Kevin */
+.diagrama{
+    text-align: center;
+}
+
+.separador{
+    width: 18rem;
+    display: inline-block;
+    padding-left: 1.75rem;
+}
+
+.tema{
+    width: 18rem ;
+    font-size: 1.3rem;
+    display: inline-block;
+}
+
+.circulo{
+    width: 5rem;
+    height: 5rem;
+    border: 2px solid black;
+    border-radius: 100%;  
+}
+
+.linea-horizontal{
+    width: 5rem;
+    background-color: black;
+    height: 1.5rem;
+}
+
+.float-left{
+    float: left;
+}
+
+.rectangulo{
+    width: 8rem;
+    height: 5rem;
+    border: 2px solid black;
+}
+
+.linea-vertical{
+    width: 1.5rem;
+    background-color: black;
+    height: 5rem;
+}
+
+
+
+.table{
+    display: table;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+}
+
+.table-cell{
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.flex{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    text-align: center;
+}
+
+.centrado{
+    width: 100%;
+}
+
