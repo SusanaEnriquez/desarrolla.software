@@ -1,5 +1,20 @@
+console.log('Hola :)');
 
+/* Tipos de datos
+    Primitivos: boolean (t|f), number (int|dec), stringo ('texto')
+    Complejos: array {a,b,c,d} , objetos {key: value}
+*/
 
+/* Variables: referencia o identificador de un valor
+    var nombre; <- declarar variables
+    var nombre = 25; <- declarar variable inicializada
+    edad = true; <- reasignacion 
+        el nombre de la variable debe cumplir con las siguientes reglas:
+            - no debe iniciar con numero ni caracteres especiales, a excepcion del $ (1ejemplo, #ejemplo)
+            - no debe haber caracteres especiales en el nombre (ejemplo%5)
+            - pueden contener el _ ( _ejemlo, ejemplo_ , ejemplo_tres )
+            - en los alcances de sentencias que no son operaciones (if,else,for,while) no deben repetirse los nombres dentro de un alcance
+*/
 
 
 // Declarar variables e imprimir su valor en consola
@@ -7,19 +22,71 @@ var nombre = "Susana", apellidos = "Enriquez Godina", sexo = "Femenino";
 var fechaNacimiento = new Date('2001,03,03');
 var edad = 20;
 
-
 console.log("Mi nombre es " + nombre + " " + apellidos + ", naci el " + fechaNacimiento +
             ", tengo " + edad + " años y mi sexo es " + sexo);
 
 
 
-// Funciones
+
+// Funciones: serie de pasos para lograr algo
 // Declarar una funcion que muestre en la consola el nombre de una persona y su fecha de nacimiento
 function NombreFuncion(nombre, fechaNac){
     console.log("El nombre es: " + nombre + " y nacio el: " + fechaNac);
 };
 
 NombreFuncion("Susy Enriquez", new Date('2001,03,03')); 
+
+
+// Declarar la funcion suma que toma de parametros 3 numeros y regresa de resultado la suma de estos
+function suma(a,b,c){
+    return a+b+c;
+}
+
+var resultado = suma(10,-2,3); 
+console.log(resultado);
+
+
+
+
+/* Array: listas indexadas, comienan desde 0 
+    var lista =[];  |  var lista = new Array();   <- lista sin datos */
+var numerosPares= [2,4,6,8,10,12,14,16];
+numerosPares.push(18); // <- agrega el 18 al final de la lista
+console.log(numerosPares[3]);
+
+
+/* Objetos: representaciones de algo, abstraccion de algo en codigo
+    var objeto = {key: value} */
+var persona = {
+    nombre: "Susy",
+    edad: 20,
+    caminar: function(){
+        console.log('Caminando...')
+    },
+    mostrarInfo: function(){
+       console.log(this.nombre);
+       console.log(this.edad);
+    }
+};
+
+persona.nombre = 'Asi se cambia el nombre';
+persona.caminar();
+persona.mostrarInfo();
+
+
+
+
+// Operadores condicionales
+var condicion = 5>10; // false
+condicion = 10 == 11; // false
+condicion = 10 == 10; // true
+condicion = 10 == '10'; // true
+condicion = 10 === '10'; // false
+condicion = 15 != 10; // true
+condicion = 15 != '15' // false
+condicion = 15 !== '15' // true
+console.log("Condicion: " + condicion);
+
 
 
 
@@ -101,10 +168,12 @@ var version = 'v'; //'r', 'a', 'b', 'v'
 if (version === 'v'){
     console.log( 'Esta version es una versio nueva')
 } else if (version === 'r'){
-    console.log( 'Esta version es una versio nueva')
+    console.log( 'Esta es la version base que se vende')
 } else if (version === 'a'){
     console.log('Esta es la version experimental')
-}
+} else if (version === 'b'){
+    console.log('Esta es la version de prueba')
+} else{ console.log('No conozco esta version :(')}
 
 switch(version){
     case "v":
@@ -116,8 +185,10 @@ switch(version){
     case "a":
         console.log('Esta es la version experimental');
         break;
+    case "b":
+        console.log( 'Esta es la version de prueba')
     default: 
-        console.log('No conozco esa version');
+        console.log( 'No conozco esa version :(');
         break;
 };
 
@@ -151,6 +222,8 @@ switch (marca) {
         console.log('No conozco esa marca');
         break;
 }
+
+
 
 
 
