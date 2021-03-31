@@ -3,6 +3,7 @@ console.log('Hola :)');
 /* Tipos de datos
     Primitivos: boolean (t|f), number (int|dec), stringo ('texto')
     Complejos: array {a,b,c,d} , objetos {key: value}
+    Function
 */
 
 /* Variables: referencia o identificador de un valor
