@@ -1,10 +1,34 @@
-// npm install express
+// MONGO -> seg - desarrolla.software
+
+/* NODE JS no es multitasking, trabaja con un solo procesador
+ Comandos:
+    - node PATH/app.js
+    - npm install package --save    <- es el que debe de usar mas, solo se instala en el proyecto que queremos
+    - npm install package --global    <- al instalarlo asi se puede utilizar en todos los proyectos
+*/
+
+// npm install express --save
 // CODIGOS DE ERRORES -> https://developer.mozilla.org/es/docs/Web/HTTP/Status
 
 var express = require('express');
 
 const app = express(); //Generar una app de express
 app.use(express.static('../')); //SERVIDOR LOCAL ('../')->se sale una carpeta
+
+/* EXPRESS:
+    Aplication: general, es todo
+    Use: para cargar plugins o extensiones para el server
+        - Manipular cookies
+        - Manipular el CORS
+        - Manipular el tipo de preprocesador a texto
+    Methods: todos los metodos de HTTP
+        - get
+        - post
+        - delete
+        - put
+    User Routers: utiliza routers apara generar endpoints
+/*
+
 
 /*
 FUNCION ANONIMA
