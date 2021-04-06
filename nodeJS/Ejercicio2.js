@@ -1,4 +1,5 @@
 // MONGO -> seg - desarrolla.software
+//  documentacion de mongo ->  docs.mongodb.com/drivers/node/current/fundamentals/crud/read-operations/retrieve/  
 
 /* NODE JS no es multitasking, trabaja con un solo procesador
  Comandos:
@@ -8,6 +9,7 @@
 */
 
 // npm install express --save
+// npm install mongodb --save
 // CODIGOS DE ERRORES -> https://developer.mozilla.org/es/docs/Web/HTTP/Status
 
 var express = require('express');
@@ -27,7 +29,69 @@ app.use(express.static('../')); //SERVIDOR LOCAL ('../')->se sale una carpeta
         - delete
         - put
     User Routers: utiliza routers apara generar endpoints
-/*
+*/
+
+// Conexion al servidor de mongo (atlas)
+const MongoClient = require('mongodb').MongoClient;
+const uri = "mongodb+srv://seg:desarrolla.software@cluster0.deva6.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
+const client = new MongoClient(uri, { 
+    useNewUrlParser: true, 
+    useUnifiedTopology: true 
+});
+
+client.connect(async err => {
+    if(err){
+        console.log('Ocurrio un error al intentar conectarse a Mongo: ' + err);
+        return;  // no regresa nada pero sirve para salir (como un break)
+    }
+    console.log('Se ha conectado correctamente a la base de datos de Mongo')
+
+    const cosas = client.db("Prueba").collection("cosas");
+    var numeros = [34, 86, 15, 764, 423, 3738];
+
+    /* Agregar
+    for (var i = 0; i < numeros.length; i++) {
+        const numero = numeros[i];
+       cosas.insertOne({
+           name: "Nuevo numero",
+           num: numero
+       });
+    }*/
+
+    /* delete los numeros menores o iguales a 50
+    cosas.deleteMany({
+        num: {$lte: 50} 
+        // $lte -> menor o igual
+        // $gte -> mayor o igual
+        // $lt -> menor 
+        // $gt -> mayor
+        // $eq -> igual
+        // $ne -> diferente
+    });*/
+
+   /* var datos = await cosas.find().toArray();
+    console.log(datos);
+
+    var dato = await cosas.findOne({
+        num: 764
+    });
+    console.log(dato);
+    */
+
+    cosas.updateOne({ num: 764}, {$set: {name: "Esto se actualizo", num:678} });
+    cosas.updateMany({name:"Nuevo numero"}, {$set: {name: "Viejo numero"}})
+    // {lo que quiero actualizar},{los cambios}
+
+   /*collection.find().toArray().then(datos =>{ // promesa
+       console.log(datos);
+   }).catch(e =>{
+       console.log('Ocurrio un error');
+   }).finally(()=>{
+       console.log('Al final que se hace');
+   });*/
+
+});
+
 
 
 /*
