@@ -78,9 +78,13 @@ client.connect(async err => {
     console.log(dato);
     */
 
+
+    /* ACTUALIZAR
     cosas.updateOne({ num: 764}, {$set: {name: "Esto se actualizo", num:678} });
     cosas.updateMany({name:"Nuevo numero"}, {$set: {name: "Viejo numero"}})
-    // {lo que quiero actualizar},{los cambios}
+                        -> {lo que quiero actualizar},{los cambios}
+    */
+
 
    /*collection.find().toArray().then(datos =>{ // promesa
        console.log(datos);
