@@ -1,5 +1,6 @@
-const express = requires('express');
-const express = requires('mongoose');
+const express = require('express');
+const mongoose = require('mongoose');
+const bodyParser = require('body-parser');
 const PORT = 678;
 
 // npm init -> inicializar un proyecto en el cual se puden instalr modulos
@@ -20,6 +21,10 @@ mongoose.connect(uri, {
     }
 });
 const app = express();
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({
+    extended: true
+}));
 
 const { Mongoose } = require('mongoose');
 var routerUsers = require('./routers/users');
