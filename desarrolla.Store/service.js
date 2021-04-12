@@ -27,7 +27,11 @@ app.use(bodyParser.urlencoded({
 }));
 
 const { Mongoose } = require('mongoose');
+
 var routerUsers = require('./routers/users');
 app.use('/users', routerUsers);
+
+var routerProducts = require('./routers/products');
+app.use('/products', routerProducts);
 
 app.listen(PORT);

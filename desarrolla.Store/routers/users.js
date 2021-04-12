@@ -1,4 +1,5 @@
 const express = require('express'); // referencia del servidor de express
+const { PromiseProvider } = require('mongoose');
 const router = express.Router(); // crear un enrutador para este servicio
 const User = require('../models/user'); // importar nuestro modelo de datos
 
@@ -52,6 +53,57 @@ router.post('/register', async (req, res) => {
     });
 });
 
+router.put('/:nickname', async (req, res) => {
+    const nickname = req.params.nickname;
+    const userData = req.body;
+
+    var user = await User.findOne({ nickname: nickname });
+    // findOne puede regresar null o el usuario 
+    if (!user){
+        // User no existe
+        return res.status(404).send({
+            message: 'El usuario: ' + nickname + ' no existe'
+        });
+    }
+    
+    // Campos que el usuario puede actualizar
+   
+    /* Los objetos en JS tambien se les conoce como Key Value Pair {key:value},  key es unico*/  
+    var propiedades = Object.keys(userData);
+    /* Regresa un array [Strings], puedo acceder a la propiedad de un objeto de manera tipo Hashing: userData['name'] -> userDta.name */
+
+    for (var i = 0; i < propiedades.length; i++) {
+        const propiedad = propiedades[i];
+        
+        switch (propiedad) {
+            case "name":
+                user.name = userData.name
+                break;
+            
+            case "lastName":
+                user.lastName = userData.lastName
+                break;
+
+            case "phone":
+                user.phone = userData.phone
+                break;
+
+            case "password":
+                user.password = userData.password
+                break;
+            
+            case "address":
+                user.address = userData.address
+                break;
+            }
+    }
+
+    await user.save(); // Guardar en la BD
+
+    res.send({
+        message: 'Se actualizo el usuario correctamente'
+    });
+});
 
 router.delete('/:nickname', async (req, res) => {
 
