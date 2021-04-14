@@ -1,6 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
+const cookieParser = require('cookie-parser');
 const PORT = 678;
 
 // npm init -> inicializar un proyecto en el cual se puden instalr modulos
@@ -25,6 +26,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
     extended: true
 }));
+app.use(cookieParser());
 
 const { Mongoose } = require('mongoose');
 

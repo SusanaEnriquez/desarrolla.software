@@ -2,6 +2,7 @@ const express = require('express'); // referencia del servidor de express
 const { PromiseProvider } = require('mongoose');
 const router = express.Router(); // crear un enrutador para este servicio
 const User = require('../models/user'); // importar nuestro modelo de datos
+const Validate = require('../validation/validate'); // Importar el modulo de validate
 
 // localhost:678/users/all -> GET
 router.get('/all', async (req, res) => {
@@ -30,7 +31,15 @@ router.post('/register', async (req, res) => {
     // El parametro 'req' contiene toda la info que se envia para generar esta peticion, o sea aqui vienen los datos
     var datosUsuario = req.body;
 
-// OR en el query de Mongo
+    // Validamos que la info necesaria se haya provisto de manera correcta
+    const { error } = Validate.registration(datosUsuario);
+    if (error){
+        return res.status(400).send({
+            error: error.details[0].message
+        });
+    }
+
+    // OR en el query de Mongo
     var userExists = await User.findOne({ $or: [{ nickname: datosUsuario. nickname}, { email: datosUsuario.email}]});
         if (userExists){
             return res.status(401).send({
@@ -38,7 +47,7 @@ router.post('/register', async (req, res) => {
             });
         }
 
-
+    
     var usuarioRegistrado = new User({
         nickname: datosUsuario.nickname,
         name: datosUsuario.name,
@@ -118,6 +127,43 @@ router.delete('/:nickname', async (req, res) => {
 
 });
 
+router.post('/login', async (req,res) => {
+    var datosLogin = req.body;
+
+    const { error } = Validate.login(datosLogin);
+    if (error){
+        return res.status(400).send({
+            error: error.details[0].message
+        });
+    }
+
+    if(!datosLogin.nickname && !datosLogin.email){
+        return res.status(403).send({
+            error: "Necesita especificar un nickname o correo para iniciar sesion"
+        });
+    }
+    var usuario = await User.findOne({ $or: [{nickname: datosLogin.nickname},{email: datosLogin.email}],
+        password: datosLogin.password});
+
+    if(!usuario){
+        return res.status(404).send({
+            error: "Datos incorrectos de inicio de sesion. Verifique el user/password"
+        });
+    }
+    res.cookie("SESSIONID", usuario.nickname);
+    res.send({
+        message: "Se ha iniciado sesion correctamente :)"
+    });
+});
+
+router.post('/logout', async (req,res) => {
+    // Limpiar la cookie
+    res.clearCookie('SESSIONID');
+
+    res.send({
+        message: "Se ha desloggeado y se ha borrado la sesion"
+    });
+});
 
 // Exportar o generar el modulo user.js
 // Para ello debemos exportar aquello que contenga a todo la info

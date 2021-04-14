@@ -4,6 +4,8 @@ const {
 } = require('mongoose');
 const router = express.Router(); // crear un enrutador para este servicio
 const Product = require('../models/product'); // importar nuestro modelo de datos
+const Validate = require('../validation/validate'); // Importar el modulo de validate
+
 
 // VER TODOS LOS PRODUCTOS
 router.get('/all', async (req, res) => {
@@ -17,6 +19,14 @@ router.get('/all', async (req, res) => {
 // AGREGAR UN PRODUCTO NUEVO
 router.post('/new', async (req, res) => {
     var productData = req.body;
+    
+    // Validate
+    const { error } = Validate.newProduct(productData);
+    if(error){
+        return res.status(400).send({
+            error: error.details[0].message
+        });
+    };
 
     var productExists = await Product.findOne({
         sku: productData.sku
