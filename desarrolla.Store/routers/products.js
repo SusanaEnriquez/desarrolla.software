@@ -52,6 +52,77 @@ router.post('/new', async (req, res) => {
     });
 });
 
+function ToRegex( texto ) {
+
+    var textoRegex = "";
+
+    //Suponiendo que el texto es "aspirador auto"
+    for (var i = 0; i < texto.length; i++) {
+        const caracter = texto.charAt(i);
+        if(caracter === ' ') {
+            textoRegex += ".*";
+        } else {
+            textoRegex += '[' + caracter.toUpperCase() + caracter.toLowerCase() + ']';
+        }
+    } //[Aa][Ss][Pp][Ii][Rr][Aa][Dd][Oo][Rr].*[Aa][Uu][Tt][Oo]
+
+    return textoRegex;
+};
+// BUSCAR PRODUCTOS
+router.get('/search', async (req,res) => {
+    var query = req.query; 
+    var name = query.name; //?name=aspiradora
+    var price = query.price; //?price=0,100
+    var stock = query.stock; //?stock=true
+    
+    var filtro = {};
+    
+    if(name) {
+        filtro.name = { $regex: ToRegex(name) };
+    }
+
+    if(price) {
+        var precios = price.split(',');
+        //0,1 - 0 - 0,1,2
+        //["0", "1"]
+        //[]
+        //["0", "1,2"]
+        //0,a -> ["0", "a"]
+        if(precios.length >= 2) {
+            var min = parseInt(precios[0]);
+            var max = parseInt(precios[1]);
+
+            min = isNaN(min) ? 0 : min; //?:
+            max = isNaN(max) ? 10000 : max;
+            //0,50
+            //50,0
+            if(min > max) {
+                //Swap Value
+                var tempMax = max;
+                max = min;
+                min = tempMax;
+            }
+            filtro.price = { $gte: min, $lte: max }
+        }
+    }
+
+    if(stock) {
+        if(stock === "true") {
+            filtro.stock = { $gte: 1 };
+        } else if(stock === "false"){
+            filtro.stock = 0;
+        }
+    }
+
+    var productos = await Product.find(filtro, {
+        _id: 0,
+        __v: 0
+    });
+
+    res.send(productos);
+
+});
+
 // VER UN  PRODUCTO EN ESPECIFICO 
 router.get('/:sku',async (req,res) => {
     var sku = req.params.sku;
@@ -128,79 +199,6 @@ router.put('/:sku', async (req,res) => {
         message: "Se ha actualizado el producto :)"
     });
 });
-
-function ToRegex( texto ) {
-
-    var textoRegex = "";
-
-    //Suponiendo que el texto es "aspirador auto"
-    for (var i = 0; i < texto.length; i++) {
-        const caracter = texto.charAt(i);
-        if(caracter === ' ') {
-            textoRegex += ".*";
-        } else {
-            textoRegex += '[' + caracter.toUpperCase() + caracter.toLowerCase() + ']';
-        }
-    } //[Aa][Ss][Pp][Ii][Rr][Aa][Dd][Oo][Rr].*[Aa][Uu][Tt][Oo]
-
-    return textoRegex;
-}
-
-// BUSCAR PRODUCTOS
-router.get('/search', async (req,res) => {
-    var query = req.query; 
-    var name = query.name; //?name=aspiradora
-    var price = query.price; //?price=0,100
-    var stock = query.stock; //?stock=true
-    
-    var filtro = {};
-    
-    if(name) {
-        filtro.name = { $regex: ToRegex(name) };
-    }
-
-    if(price) {
-        var precios = price.split(',');
-        //0,1 - 0 - 0,1,2
-        //["0", "1"]
-        //[]
-        //["0", "1,2"]
-        //0,a -> ["0", "a"]
-        if(precios.length >= 2) {
-            var min = parseInt(precios[0]);
-            var max = parseInt(precios[1]);
-
-            min = isNaN(min) ? 0 : min; //?:
-            max = isNaN(max) ? 10000 : max;
-            //0,50
-            //50,0
-            if(min > max) {
-                //Swap Value
-                var tempMax = max;
-                max = min;
-                min = tempMax;
-            }
-            filtro.price = { $gte: min, $lte: max }
-        }
-    }
-
-    if(stock) {
-        if(stock === "true") {
-            filtro.stock = { $gte: 1 };
-        } else if(stock === "false"){
-            filtro.stock = 0;
-        }
-    }
-
-    var productos = await Product.find(filtro, {
-        _id: 0,
-        __v: 0
-    });
-
-    res.send(productos);
-
-});
-
 
 // Exportar o generar el modulo user.js
 // Para ello debemos exportar aquello que contenga a todo la info
