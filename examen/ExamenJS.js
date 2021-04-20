@@ -22,8 +22,24 @@ MostrarMensaje("user-not-found: ", 404, "The requested user could not be found")
 
 
 // 4. 
+// ERA MAS FACIL CON PUROS IF
 var nombreUsuario = "SusyEnriquez", tipoUsuario = "regular" , operacion = "eliminar"
-switch (tipoUsuario) {
+if (tipoUsuario == "admin"){
+    console.log("Permisos otorgados para: "+ nombreUsuario);
+}
+else if (tipoUsuario == "colaborador"&&(operación == "Lectura" ||operación === "Edición"||operación === "Mover")){
+    console.log("Permisos otorgados");
+}
+else if (tipoUsuario == "colaborador"&&(operación == "Creación" || operación == "Eliminar")){
+    console.log("Permisos denegados para: " + nombreUsuario);
+}
+else if (tipoUsuario == "regular" && operación == "Lectura"){
+    console.log("Permisos otorgados para: " + nombreUsuario);
+}
+else if (tipoUsuario == "regular"&&(operación == "Edición" || operación == "Mover" || operación == "Creación" || operación == "Eliminar")){
+    console.log("Permisos denegados para: " + nombreUsuario);
+}
+/* switch (tipoUsuario) {
     case "admin":
          console.log("Permisos otorgados para: " + nombreUsuario);
         break;
@@ -47,7 +63,7 @@ switch (tipoUsuario) {
     default:
         console.log("No se reconoce tipo de usuario");
         break;
-}
+} */
 
 
 // 5. 
@@ -120,6 +136,7 @@ GenerarObjeto("Susana", "Enriquez Godina", 20);
 // 11.
 /* var express = require('express');
 const app = express();
+app.use(express.static('../));
 
 app.get('/hello', async (req, res) => {
     res.send("Hola! :)");

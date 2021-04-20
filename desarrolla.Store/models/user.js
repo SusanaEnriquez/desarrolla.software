@@ -16,7 +16,8 @@ module.exports = mongoose.model('User', new mongoose.Schema({
     email: String,
     password: String,
     phone: Number,
-    userType: String
+    userType: String,
+    cartID: String
 }), 'Users');
 
 

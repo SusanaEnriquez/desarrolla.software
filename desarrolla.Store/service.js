@@ -7,7 +7,7 @@ const PORT = 678;
 // npm init -> inicializar un proyecto en el cual se puden instalr modulos
 // npm install express    npm install mongoose
 
-const uri = "mongodb+srv://seg:desarrolla.software@cluster0.deva6.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
+const uri = "mongodb+srv://seg:desarrolla.software@cluster0.deva6.mongodb.net/SPGG?retryWrites=true&w=majority";
 mongoose.connect(uri, {
     useNewUrlParser: true,
     useUnifiesTopology: true
