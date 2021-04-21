@@ -2,6 +2,7 @@
 const User = require('../models/user');
 
 module.exports = {
+    // Extrae la cookie SESSIONID
     isAdmin: async function( req, res ){
         var sessionID = req.cookies["SESSIONID"];
         
@@ -22,5 +23,12 @@ module.exports = {
             error: "El usuario no tiene privilegios para realizar esta operación"
         });
         return false;
+    },
+
+    genCartID: function(){
+        // genra un ID unico 
+        var epoch = Date.now() + '' +  Date.now() + '' +  Date.now();
+       epoch = Buffer.from(epoch).toString('base64');
+       return epoch;
     }
 };

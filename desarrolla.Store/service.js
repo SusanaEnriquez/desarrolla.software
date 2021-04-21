@@ -36,4 +36,7 @@ app.use('/users', routerUsers);
 var routerProducts = require('./routers/products');
 app.use('/products', routerProducts);
 
+var routerCarts = require('./routers/carts');
+app.use('/carts', routerCarts);
+
 app.listen(PORT);
