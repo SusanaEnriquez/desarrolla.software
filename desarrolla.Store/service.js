@@ -28,6 +28,8 @@ app.use(bodyParser.urlencoded({
 }));
 app.use(cookieParser());
 
+app.use(express.static('./public')); // Crear un servidor Web
+
 const { Mongoose } = require('mongoose');
 
 var routerUsers = require('./routers/users');

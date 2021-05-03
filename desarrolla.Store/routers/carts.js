@@ -44,7 +44,7 @@ router.get('/getCart', async (req,res) => {
                     userCart.markModified('products');
                     await userCart.save();
 
-                    res.cookie('CARTID', user.cartID, {
+                    res.cookie('CARTID', usercart.id, {
                         expires: new Date(2025,0,1)
                     });
                     userCart = userCart.toObject();
@@ -98,6 +98,7 @@ router.get('/getCart', async (req,res) => {
     res.send(carrito);
 });
 
+// Ver un carrito en especifico
 router.put('/viewCart', async (req,res) => {
     const cartID = req.body.cartID;
     var cart = await Cart.findOne({ id: cartID }, { _id:0, __v:0 });
@@ -174,8 +175,65 @@ router.patch('/add', async (req,res) => {
     return res.send(carrito);
 });
 
-// 
+// Enpoint para eliminar un producto del carrito -> actualizar
+router.patch('/remove', async (req,res) => {
+    var datoProducto = req.body;
+    var cartID = req.cookies["CARTID"];
+    var carrito = null;
 
-// Exportar o generar el modulo user.js
+    if(!datoProducto.sku && (!datoProducto.qty || !datoProducto.all)){
+        return res.status(400).sen({
+            message: "Debe especificar el sku del producto, qty a eliminar, o all: true"
+        })
+    }
+
+    if(datoProducto.qty) {
+        datoProducto.qty = parseInt(datoProducto.qty);
+        if(isNaN(datoProducto.qty) || datoProducto.qty < 1) {
+            return res.status(400).send({
+                message: "producto.qty debe ser un número entero mayor o igual a 1"
+            });
+        }
+    }
+
+    carrito = await Cart.findOne({
+        id: cartID
+    });
+
+    if (!carrito) {
+        return res.status(400).send({
+            message: "No existe un carrito asociado a esta petición... Ejecute el endpoint /carts/getCart"
+        });
+    }
+
+    var productoExiste = carrito.products.some( prod => prod.sku === datosProducto.sku);
+    if(productoExiste){
+        const i = carrito.products.findIndex( prod => prod.sku === datosProducto.sku);
+        const producto = carrito.products[i];
+
+        if(datoProducto.all === true || producto.qty <= datoProducto.qty) {
+            //Eliminar por completo el producto del carrito
+            carrito.quantity -= producto.qty;
+            carrito.total -= producto.unit_price * producto.qty;
+            carrito.products.splice(i, 1);
+        } else if(producto.qty > datoProducto.qty) {
+            producto.qty -= datoProducto.qty;
+            carrito.quantity -= datoProducto.qty;
+            carrito.total -= producto.unit_price * datoProducto.qty;
+        }
+    }
+
+    carrito.markModified('products');
+    await carrito.save();
+
+    var carritoFinal = carrito.toObject();
+    delete carritoFinal._id;
+    delete carritoFinal.__v;
+
+    res.send(carritoFinal);
+    }
+
+});
+// Exportar o generar el modulo 
 // Para ello debemos exportar aquello que contenga a todo la info
 module.exports = router;    

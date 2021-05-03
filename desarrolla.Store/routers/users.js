@@ -72,9 +72,10 @@ router.put('/:nickname', async (req, res) => {
     const nickname = req.params.nickname;
     const usuarioActual = req.cookies["SESSIONID"];
     const userData = req.body;
+    var userIsAdmin = false;
 
     if(nickname !== usuarioActual) {
-        var userIsAdmin = await Utils.isAdmin(req, res);
+        userIsAdmin = await Utils.isAdmin(req, res);
         if(!userIsAdmin) {
             return;
         }
@@ -103,6 +104,30 @@ router.put('/:nickname', async (req, res) => {
                 user.name = userData.name
                 break;
             
+            case "nickname":
+                var newNickname = userData.nickname;
+                var userExists = await User.findOne({nickname: newNickname});
+                if(userExists){
+                    res.status(403).send({
+                        error: "Este nickname ya esta ligado a otra cuenta"
+                    });
+                    return;
+                }
+                user.nickname = newNickname;
+                break;
+
+            case "email":
+                var newEmail = userData.email;
+                var userExists = await User.findOne({email: newEmail});
+                if(userExists){
+                    res.status(403).send({
+                        error: "Este email ya esta ligado a otra cuenta"
+                    });
+                    return;
+                }
+                user.email = newEmail;
+                break;
+
             case "lastName":
                 user.lastName = userData.lastName
                 break;
@@ -138,7 +163,23 @@ router.delete('/:nickname', async (req, res) => {
     var parametros = req.params;
     var nickname = parametros.nickname;
     
+    // Opcion 1
+    // var user = await User.findOne({nickname: nickname});
+    // if(!user){
+    //     res.send({
+    //         message:'El usuario ' + user + ' no existe'
+    //     });
+    //     return;
+    // }
+    
+    // Opcion 2
     var usuarioBorrado = await User.deleteOne({nickname: nickname});
+    if(usuarioBorrado.deletedCount === 0){
+        res.status(404).send({
+            message:'El usuario ' + nickname + ' no existe'
+        });
+        return;
+    }
 
     res.send({
         message: "Se ha borrado el usuario: " + nickname
