@@ -1,0 +1,19 @@
+<header class="w100 bg-primary">
+    <a href="/" class="d-flex align-items-center float-left"> <!--el href "/" te regresa al inicio -->
+        <div class="logo"></div>
+        <span>Desarrolla.Store</span>
+    </a>
+    <div class="d-flex align-items-center float-right h-100">
+        <a href="/">Inicio</a>
+        <span>&nbsp; | &nbsp;</span>
+        <a href="/catalog">Catalogo</a>
+        <span>&nbsp; | &nbsp;</span>
+        <a [href]="accountRedirect ==='Login' ? '/login' : '/account'">{{ accountRedirect}}</a>
+    <a href="/cart">
+        <i class="bi bi-cart3"></i>
+        ({{ numberProducts }})
+    </a>
+    </div>
+</header>
+
+ 

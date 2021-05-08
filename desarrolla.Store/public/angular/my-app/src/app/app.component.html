@@ -1,0 +1,6 @@
+<h1>{{title}}</h1>
+<h2>Nombre: {{name}}</h2>
+<button (click)="CambiarTitulo();">Cambiar Titulo</button>
+
+<div *ngFor="let producto of productos">SKU: {{producto.sku}} - Name: {{producto.name}}</div>
+<button (click)="CambiarArreglo();">Cambiar SKU</button>
