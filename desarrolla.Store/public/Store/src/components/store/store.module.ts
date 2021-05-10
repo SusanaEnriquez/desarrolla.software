@@ -3,13 +3,15 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { StoreComponent } from './store'; //Se importa el componente
 import { HeaderComponent } from '../menu-header/menuHeader';
+import { CatalogComponent } from '../catalog/catalog';
 //Es importante asignar el nombre igual al que exportamos en el archivo component.ts
 //Ejemplo: Si mi componente es catalogo.component.ts, entonces debo importar CatalogoComponent
 
 @NgModule({
   declarations: [
     StoreComponent, //Se añade el componente importado arriba
-    HeaderComponent
+    HeaderComponent,
+    CatalogComponent
   ],
   imports: [
     BrowserModule

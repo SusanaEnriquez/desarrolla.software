@@ -1,0 +1,43 @@
+<main class="container py-3">
+  <article class="row">
+    <section class="filtro col-3">
+      <h3>Filtros de búsqueda</h3>
+      <input type="checkbox" name="Filtro tal" id="filtro1">
+      <label for="filtro1">Filtro 1</label>
+    </section>
+    <section class="col-9 px-2">
+      <div *ngFor="let product of products" class="card product-card">
+        <div [id]="'slider-' + product.sku" class="carousel slide" data-bs-ride="carousel">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img src="..." class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-item">
+              <img src="..." class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-item">
+              <img src="..." class="d-block w-100" alt="...">
+            </div>
+          </div>
+          <button class="carousel-control-prev" type="button" [attr.data-bs-target]="'#slider-' + product.sku"
+            data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" [attr.data-bs-target]="'#slider-' + product.sku"
+            data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+        <div class="card-body">
+          <span>{{product.name}} - ${{product.price}}</span>
+          <p class="card-text">
+            {{product.description}}
+          </p>
+          <button class="btn float-right">+</button>
+        </div>
+      </div>
+    </section>
+  </article>
+</main>
