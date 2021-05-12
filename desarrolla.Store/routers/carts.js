@@ -162,7 +162,7 @@ router.patch('/add', async (req,res) => {
         }
 
         carrito.quantity += producto.qty;
-        carrito.total += producto.qty * productoAñdir.price;
+        carrito.total += producto.qty * productoAñadir.price;
 
         carrito.markModified('products'); 
         await carrito.save();
@@ -231,9 +231,7 @@ router.patch('/remove', async (req,res) => {
     delete carritoFinal.__v;
 
     res.send(carritoFinal);
-    }
-
-});
+    });
 // Exportar o generar el modulo 
 // Para ello debemos exportar aquello que contenga a todo la info
 module.exports = router;    

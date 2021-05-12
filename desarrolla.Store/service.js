@@ -2,6 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
+const cors = require('cors');
 const PORT = 678;
 
 // npm init -> inicializar un proyecto en el cual se puden instalr modulos
@@ -27,6 +28,11 @@ app.use(bodyParser.urlencoded({
     extended: true
 }));
 app.use(cookieParser());
+app.use(cors({
+    origin: 'http://localhost:4200',
+    credentials: true
+
+}))
 
 app.use(express.static('./public')); // Crear un servidor Web
 

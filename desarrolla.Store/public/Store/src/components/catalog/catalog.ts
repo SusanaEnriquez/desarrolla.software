@@ -1,6 +1,8 @@
 import {
-  Component
+  Component,
+  OnInit
 } from '@angular/core';
+declare var $:any;
 
 @Component({
   selector: 'catalog', //Asignar un nombre de etiqueta, único
@@ -9,21 +11,43 @@ import {
 })
 //Debemos asignarle el nombre de nuestro componente.
 //Ejemplo: Si se llama catalogo.component.ts, debemos exportar CatalogoComponent
-export class CatalogComponent { //Cambiar el nombre de AppComponent por el del nuestro
-  products = [
-    {
-      sku: "12345",
-      name: "iPhone 12 Max",
-      price: 1234.56,
-      description: "The new 2020 iPhone 12",
-      images: [ '...', '...']
-    },
-    {
-      sku: "123456",
-      name: "iPhone 11 Max",
-      price: 1234.56,
-      description: "The new 2019 iPhone 11",
-      images: [ '...', '...']
-    }
-  ];
+export class CatalogComponent implements OnInit { //Cambiar el nombre de AppComponent por el del nuestro
+
+  ngOnInit(){
+    // console.log('Hola');
+    // console.log('El valor de products es: ' + this.products);
+   this.GetProducts();
+  }
+
+  GetProducts(){
+  var self = this; 
+      $.ajax({
+        type: "GET",
+        url: 'http://localhost:678/products/all', 
+        success: function(res: any){
+          self.products = res;
+        }
+      });
+  }
+
+  AddToCart(sku: String){
+    var self = this; 
+      $.ajax({
+        type: "PATCH",
+        url: 'http://localhost:678/carts/add', 
+        xhrFields: {
+          withCredentials: true
+        },
+        data: {
+          sku: sku,
+          qty: 1
+        },
+        success: function(res: any){
+          console.log('Add to cart: ');
+          console.log(res)
+        }
+      });
+  }
+
+  products = null;
 }
