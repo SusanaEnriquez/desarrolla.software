@@ -1,9 +1,9 @@
 header {
-    background: var(--color-blue);
-    box-shadow: 0rem 0.2rem 1rem 0.1rem var(--color-gray);
+    background: #00adb5;
+    box-shadow: 0rem 0.2rem 1rem 0.1rem #393e46;
     height: 3rem;
     padding: 0.3rem;
-    color: var(--color-white);
+    color: #EEEEEE;
     font-size: 1.4rem;
 
     position: sticky;
@@ -14,14 +14,14 @@ header {
 }
 
 a, a:link {
-    color: var(--color-white);
+    color: #EEEEEE;
     text-decoration: none;
 
     transition: 0.3s color;
 }
 
 a:hover {
-    color: var(--color-gray);
+    color: #393e46;
     text-decoration: none;
 
     transition: 0.3s color;

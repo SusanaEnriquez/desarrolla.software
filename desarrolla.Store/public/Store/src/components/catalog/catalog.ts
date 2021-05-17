@@ -2,6 +2,7 @@ import {
   Component,
   OnInit
 } from '@angular/core';
+import { Singleton } from '../../refactoring/DataSingleton';
 declare var $:any;
 
 @Component({
@@ -17,6 +18,7 @@ export class CatalogComponent implements OnInit { //Cambiar el nombre de AppComp
     // console.log('Hola');
     // console.log('El valor de products es: ' + this.products);
    this.GetProducts();
+   $(".toast").toast();
   }
 
   GetProducts(){
@@ -30,23 +32,25 @@ export class CatalogComponent implements OnInit { //Cambiar el nombre de AppComp
       });
   }
 
-  AddToCart(sku: String){
-    var self = this; 
-      $.ajax({
-        type: "PATCH",
-        url: 'http://localhost:678/carts/add', 
-        xhrFields: {
-          withCredentials: true
-        },
-        data: {
-          sku: sku,
-          qty: 1
-        },
-        success: function(res: any){
-          console.log('Add to cart: ');
-          console.log(res)
-        }
-      });
+  AddToCart(sku: String) {
+    var self = this;
+    $.ajax({
+      type: "PATCH",
+      xhrFields: { //Esto permite compartir cookies
+        withCredentials: true
+      },
+      url: 'http://localhost:678/carts/add',
+      data: {
+        sku: sku,
+        qty: 1
+      },
+      success: function (res: any) {
+        $(".toast").toast('show');
+        Singleton.GetInstance().ReloadCart();
+        //console.log('Add to cart: ');
+        //console.log(res);
+      }
+    });
   }
 
   products = null;

@@ -1,9 +1,16 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { Routes, RouterModule } from '@angular/router'; // CLI imports router
 import { StoreComponent } from './store'; //Se importa el componente
 import { HeaderComponent } from '../menu-header/menuHeader';
 import { CatalogComponent } from '../catalog/catalog';
+import { InicioComponent } from '../inicio/inicio';
+import { FooterComponent } from '../page-footer/page-footer';
+
+const routes: Routes = [
+  { path: 'catalog', component: CatalogComponent },
+  { path: '', component: InicioComponent }
+];
 //Es importante asignar el nombre igual al que exportamos en el archivo component.ts
 //Ejemplo: Si mi componente es catalogo.component.ts, entonces debo importar CatalogoComponent
 
@@ -11,10 +18,12 @@ import { CatalogComponent } from '../catalog/catalog';
   declarations: [
     StoreComponent, //Se añade el componente importado arriba
     HeaderComponent,
-    CatalogComponent
+    CatalogComponent,
+    FooterComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    RouterModule.forRoot(routes)
   ],
   providers: [],
   bootstrap: [StoreComponent] //Si se le desea añadir bootstrap a este componente

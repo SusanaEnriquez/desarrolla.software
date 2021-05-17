@@ -7,30 +7,31 @@ const Product = require('../models/product'); // importar nuestro modelo de dato
 
 // Endpoint que debe revisar si existe una cookie con el ID de un carrito; 
 // si existe, buscarlo en la BDD y regresarlo, si no crear uno nuevo con ese ID en la BDD y regresarlo
-router.get('/getCart', async (req,res) => {
+
+router.get('/getCart', async (req, res) => {
     var cartID = req.cookies["CARTID"];
     var session = req.cookies["SESSIONID"];
     var userCart = null;
     var user = null;
 
-    if(session){
+    if (session) {
         user = await User.findOne({ nickname: session });
-        if(user){
-            userCart = await Cart.findOne({ id: user.cartID }, {_id:0,__v:0})
+        if (user) {
+            userCart = await Cart.findOne({ id: user.cartID });
         }
     }
 
-    if(cartID){
-        var carrito = Cart.findOne({ id: cartID},{_id:0,__v:0});
+    if (cartID) {
+        var carrito = await Cart.findOne({ id: cartID }, { _id: 0, __v: 0 });
 
-        if(carrito){
-            // fusionar carritos
-            if(userCart){
-                if( userCart.id !== cartID){
-                    // fusion de productos
+        if (carrito) {
+            if (userCart) {
+                //Fusionar carritos
+                if (userCart.id !== cartID) {
+                    //Fusión de productos
                     carrito.products.forEach(producto => {
-                    var existeProducto = userCart.products.some( p => p.sku === producto.sku);
-                        if(existeProducto) {
+                        var existeProducto = userCart.products.some(p => p.sku === producto.sku);
+                        if (existeProducto) {
                             var indexProducto = userCart.products.findIndex(p => p.sku === producto.sku);
                             userCart.products[indexProducto].qty += producto.qty;
                         } else {
@@ -44,9 +45,10 @@ router.get('/getCart', async (req,res) => {
                     userCart.markModified('products');
                     await userCart.save();
 
-                    res.cookie('CARTID', usercart.id, {
-                        expires: new Date(2025,0,1)
+                    res.cookie('CARTID', userCart.id, {
+                        expires: new Date(2025, 0, 1)
                     });
+
                     userCart = userCart.toObject();
                     delete userCart._id;
                     delete userCart.__v;
@@ -55,15 +57,15 @@ router.get('/getCart', async (req,res) => {
             }
 
             return res.send(carrito);
-
-        } else if(user && usercart){
-            res.cookie('CARTID', usercart.id, {
-                expires: new Date(2025,0,1)
+        } else if (user && userCart) {
+            res.cookie('CARTID', userCart.id, {
+                expires: new Date(2025, 1, 1)
             });
+
             return res.send(userCart);
         }
-    } else{
-        if(user && userCart) {
+    } else {
+        if (user && userCart) {
             res.cookie('CARTID', userCart.id, {
                 expires: new Date(2025, 1, 1)
             });
@@ -72,22 +74,20 @@ router.get('/getCart', async (req,res) => {
 
         cartID = Utils.genCartID();
         res.cookie('CARTID', cartID, {
-            //tiempo de vida de las cookies
-            // maxAge: 15000 
-            expires: new Date(2025,0,1)
+            expires: new Date(2025, 1, 1)
         });
     }
-    
+
     carrito = new Cart({
-            id: cartID,
-            products: [],
-            quantity: 0,
-            total:0
-        });
+        id: cartID,
+        products: [],
+        quantity: 0,
+        total: 0
+    });
 
     await carrito.save();
 
-    if(user && !userCart){
+    if (user && !userCart) {
         user.cartID = cartID;
         await user.save();
     }
@@ -96,6 +96,7 @@ router.get('/getCart', async (req,res) => {
     delete carrito._id;
     delete carrito.__v;
     res.send(carrito);
+
 });
 
 // Ver un carrito en especifico

@@ -1,0 +1,191 @@
+* ¿Que es una clase de CSS?
+    un selector que aplica cuando se le asigna el atributo class a una etiqueta
+
+    .clase{
+
+    }
+
+    class='clase'
+
+
+
+* ¿Que es una etiqueta en html?
+    un elemento web, representa una parte de la pagina
+
+    <etiqueta></etiqueta>
+
+
+
+* ¿Que es y de un ejemplo de un atributo?
+    son caracteristicas o propiedades de una etiqueta
+
+    <h1 class='algo' id='a1234' name='susy'></h1>
+    <img src='rutaImagen'>
+    <a href='url'>
+
+
+
+* ¿Que es una regla de CSS?
+    una regla de estilos, compuesta por un selector y propiedades de estilo
+
+    .clase{
+        border: 1px solid black; <- regla
+        color: purple; <- regla
+        font-weight: bold; <- regla
+    }
+
+
+
+* ¿Que es una constante y de un  ejemplo?
+    es la definicion de un valor que no cambia, no se puede modificar
+
+    const PI = 3.1416;
+
+
+
+* ¿Que es una variable?
+    son la referencia que representa un valor, este valor puede cambiar o reasignarse, puede ser cualquier tipo de dato 
+
+    var numero = 1234;
+
+
+
+* ¿Cuales son los tipos de datos de JS?
+    Tipos Primitivos: String, Number, Boolean
+    Tipos Complejos: Objeto, Array
+
+
+
+* ¿Cuales son las 3 formas de declarar variables?
+    definir una variable
+
+    1) var nombre = 'Susy';
+    2) var nombre;
+    3) var x,y,z=1,a,b,c;
+
+
+
+* ¿Que ocurre cuando se declara una variable sin asignar (var nombre;)?
+    toma el valor de undefined
+
+
+
+* Supongamos que tenemos el siguiente codigo:
+    var x;
+    console.log(y);
+        ¿Que resultado se imprimira en la consola?
+            Arroja una excepcion: la variable y no existe
+
+
+
+* ¿Cual es la diferencia entre null y undefined?
+    null es una antigua referencia a cero, o sea existe pero no representa nada
+    undefined es un valor que dice que no hay nada definido para dicho valor
+
+
+
+* ¿Para que sirve la semantica y cuales etiquetas son las mas comunes?
+    son la estructura del contenido, organizan mejor la descripcion de esos elementos
+
+    <header> <main> <footer> <section> <article>
+
+
+
+* ¿Que tipos de display hay en CSS?
+    block: es una vista que ocupa todo el ancho del navegador
+    inline: es en linea, se junta con el texto. No tiene tamaños
+    inline-block: es en linea, pero es un bloque pequeño con ancho indefinido. Le podemos cambiar el tamaño, margen, Padding, etc.
+    table: crea una tabla de css
+    table-row: crea un renglon de css 
+    table-cell:  crea una celda de css
+    flex: crea una tabla flexible
+
+
+* Se tiene el atributo curso que tiene el atributo id con el valor PR2021, la propiedad Hora con valor 9:00AM
+    Tambien tiene la clase curso123 que cambia el color del texto a blanco, el fondo gris oscuro, un border amarillo
+    texto centrado, de tamaño 2rem. Hay un espcaciado de 0.4rem entre los bordes de arriba y abajo y el texto
+    
+    <Curso id="PR2021" hora='9:00AM' class="curso123">Hola</Curso>
+    .curso123{
+            color: white;
+            background: darkgray;
+            border: 4px solid yellow;
+            text-align: center;
+            font-size: 2rem;
+            font-weight: bold;
+            padding: 0.4rem, 0, 0.4rem, 0;
+    }
+
+
+
+* ¿Que es un arreglo?
+    una lista ordenada de datos, preferentemente del mismo tipo. El orden lo da el indice, empezando desde 0. No tenemos control de este indice
+    
+    var arreglo = [elem1, elem2, elem3, ...]
+
+
+
+* ¿Que es un objeto?
+    es la abstraccion de algo a codigo. La abstraccion es describir las caracteristicas de algo. Por ende. un objeto tiene atributos/propiedades y funciones
+    
+    var objeto = {
+        prop1: valor,
+        prop2: valor
+    }
+
+
+
+* Cree una lista de sitios de sitios de streaming
+    Cada sitio debe tener las siguientes propiedades: nombre, url, si es de paga o no, calidad de videos
+
+    var sitiosStreaming = [
+        { nombre: "Netflix", url:  "www.Netflix.com", paga: true, calidad: "Ultra HD"},
+        { nombre: "Cuevana", url:  "www.cuevana.com", paga: false, calidad: "SD+"},
+        { nombre: "Disney+", url: "www.disneyplus.com", paga: true,calidad: "Ultra HD"}
+    ];
+
+
+
+* Describasnse en un objeto
+
+    var yo = {
+        nombre: "Susana",
+        apellido: "Enriquez",
+        edad: 20,
+        nacionalidad: 'mexicana',
+        sexo: 'mujer',
+        peso: '50kg',
+        estatura: 1.67,
+        ojos: 'cafe',
+        pelo: 'ondulado',
+    }
+
+
+
+* ¿Que es una funcion?
+    una serie de pasos para realizar una acciona
+
+    function NombreFuncion(params){
+
+    }
+
+
+
+* ¿Que es un parametro de una funcion?
+    datos necesarios para ejecutar la funcion se tratan como variables
+
+    function HacerSandwich(pan, jamon, queso){
+
+    }
+
+
+
+* ¿Que es el alcance?
+    es que tanto alcanza un fragmento de codigo a ciertas variables
+    local: solo existe en ese fragmento de codigo (dentro de llaves)
+    global: existe en cualquier lado, dentro de otros locales
+
+    // global
+    function(){
+        // local
+    }

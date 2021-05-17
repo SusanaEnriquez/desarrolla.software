@@ -1,6 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 :root {
     --color-white: #EEEEEE;
+    --color-footer: #cfcfcf;
     --color-blue: #00ADB5;
     --color-gray: #393E46;
     --color-black: #222831;
@@ -8,7 +9,8 @@
 
 body {
     background: var(--color-white);
-    color: var(--color-black);;
+    color: var(--color-black);
+    font-family: 'Dosis', sans-serif;
 }
 
 .float-right {

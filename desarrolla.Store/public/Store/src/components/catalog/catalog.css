@@ -37,3 +37,10 @@
 [type='checkbox']{
     margin-right: .3rem;
 }
+
+.toast {
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
+    background-color: var(--color-blue);
+}
