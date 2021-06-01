@@ -189,3 +189,365 @@
     function(){
         // local
     }
+
+
+
+* ¿Qué tipo de valores puede retornar una función y cómo lo hace:
+    - Tipos de datos (Primitivos y complejos) return VALOR;
+    - Void (Nada) return;
+
+
+
+* ¿Qué tipos de ciclos existen en JS:
+    Un ciclo recorre, *cuenta*, repite de acuerdo a una condición
+    Existen 3 tipos de ciclos:
+        -for: Regularmente es para contar arreglos
+        var arreglo = ['a', 'b', 'c'];
+        for(var i = 0; i < arreglo.length; i++) {
+            const elemento = arreglo[i];
+            //alcance del for
+        }
+
+        -while: Repite indefinidamente hasta que se le brinde una condición.
+        No lo hace si no se cumple la condición
+        while( x > 123 ) {
+            //alcance del while
+        }
+
+        -do, while: Repite indefinidamente hasta que se le brinde una condición.
+        Lo hace mínimo una vez
+        do {
+            //Alcance del do
+        } while( x > 123 ) //Se comprueba después de hacerlo mínimo una vez
+
+
+
+* Suponiendo que se tiene un arreglo llamado nombres, con los valores 'Kevin', 'Luis', 'Fabian', Mariell', 'Tomás', recorrerlo y mostar los nombres en ese orden, pero al revés, o sea, comenzando de Tomás y terminar en Kevin.
+    var nombres = ['Kevin', 'Luis', 'Fabian', Mariell', 'Tomás', 'Fer'];
+    for(var i = nombres.length - 1; i > -1; i--) {
+        const nombre = nombres[i];
+        console.log(nombre);
+    }
+
+
+
+* Repetir indefinidamente hasta que una variable llamada tareaEnEjecucion sea igual a false.
+    La tarea estará en ejecución mientras una variable X sea igual a 100. Inicialmente comienza en 0 y va subiendo de 1 en 1.
+
+        var tareaEnEjecucion = true;
+        var x = 100;
+
+        while( x < 100 ) {
+            //Alcance while
+            x++;
+            if(x === 100) {
+                tareaEnEjecucion = false;
+            }
+        }
+
+        var tareaEnEjecucion = true;
+        var x = 100;
+
+        do {
+            if(x === 100) {
+                tareaEnEjecucion = false;
+            }
+            x++;
+        } while(x < 100)
+
+
+
+* ¿Cuáles son las sentencias selectivas?: Condiciona si algo ocurre o no
+    Si ALGO entonces ESTO
+    Si no, OTRO
+        - if, else
+        if( condición ) {
+            //alcance if
+        } else {
+            //alcance else
+        }
+
+        var x = 10;
+        if( x == 10 ) {
+            //Alcance del if
+            var y = 5;
+            console.log('Es 10 :D');
+        } else {
+            //Alcance del else
+            var z = 4;
+            console.log('Es diferente de 10 D:');
+        }
+
+        if(algo) {
+
+        } else if(otraCosa){
+
+        } else
+
+        var x = 10; //global
+        if( x === 10 ) {
+            var y = 3; //local para el primer if
+                    //global solo para el segundo if
+            if(y === 3) {
+                var z = 4; //local
+                console.log(x);
+                console.log(y);
+                console.log(z);
+            }
+
+            while(true) {
+
+            }
+
+            if(algo) {
+
+            } else {
+
+            }
+
+        } else {
+
+        }
+
+        - Es típico que si se tienen más de 3 if's anidados:
+        if(a){
+        } else if(b){
+        } else if(c){
+        } else if(d){
+        } else{
+        }
+        Es válido y buena práctica cambiarlo por un switch
+
+    switch(valor) {
+        //Alcance switch
+        case "a":
+            //Qué hacer SI es a
+        break;
+
+        case "b":
+            //Qué hacer SI es b
+        break;
+
+        case "c":
+            //Qué hacer SI es c
+        break;
+
+        case "d":
+            //Qué hacer SI es d
+        break;
+
+        default:
+            //Qué hacer SI NO es ninguno
+        break;
+    }
+
+
+
+* Suponiendo que se tiene una variable tipoDeTarea, seleccionar entre los posible valores: 'Barrer', 'Trapear', 'Trastos', 'Baños', 'Camas', 'Cocina'.
+Si se selecciona el valor 'Barrer', crear una variable escoba con el valor true e imprimir el mensaje 'Barriendo'.
+Si se selecciona el valor 'Trapear', crear una variable trapeador y otra llamada cubeta con el valor true ambas e imprimir el mensaje 'Trapeando'.
+Si se selecciona el valor 'Trastos', crear una variable esponja con el valor true e imprimir el mensaje 'Lavando trastes'.
+Si se selecciona el valor 'Baños', crear una variable cepillo, esponja y trapo, todas con el valor true e imprimir el mensaje 'Lavando el baño'.
+Si se selecciona el valor 'Camas', crear una variable cobijas con el valor true e imprimir el mensaje 'Tendiendo las camas'.
+Si se selecciona el valor 'Cocina', crear una variable esponjaMetal con el valor true e imprimir el mensaje 'Limpiando la cocina'.
+Si es otra tarea, crear una variable llamada tarea con el valor a false e imprimir "Estoy ocupado :c".
+Hacerlo de ambas manera, con if's anidados y con el switch
+
+    var tipoDeTarea = 'Ocupado';
+    if(tipoDeTarea === 'Barrer') {
+        var escoba = true;
+        console.log('Barriendo');
+    } else if(tipoDeTarea === 'Trapear') {
+        var trapeador = true;
+        var cubeta = true;
+        console.log('Trapeando');
+    } else if(tipoDeTarea === 'Trastos') {
+        var esponja = true;
+        console.log('Lavando los trastes');
+    } else if(tipoDeTarea === 'Baños') {
+        var cepillo = true;
+        var esponja = true;
+        var trapo = true;
+        console.log('Lavando el baño');
+    } else if(tipoDeTarea === 'Camas') {
+        var cobijas = true;
+        console.log('Tendiendo las camas');
+    } else if if(tipoDeTarea === 'Cocina') {
+        var esponjaMetal = true;
+        console.log('Limpiando la cocina');
+    } else {
+        var tarea = false;
+        console.log('Estoy ocupado :c');
+    }
+
+    switch(tipoDeTarea) {
+        case 'Barrer':
+            var escoba = true;
+            console.log('Barriendo');
+        break;
+        case 'Trapear':
+            var trapeador = true;
+            var cubeta = true;
+            console.log('Trapeando');
+        break;
+        case 'Trastos':
+            var esponja = true;
+            console.log('Lavando los trastes');
+        break;
+        case 'Baños':
+            var cepillo = true;
+            var esponja = true;
+            var trapo = true;
+            console.log('Lavando el baño');
+        break;
+        case 'Camas':
+            var cobijas = true;
+            console.log('Tendiendo las camas');
+        break;
+        case 'Cocina':
+            var esponjaMetal = true;
+            console.log('Limpiando la cocina');
+        break;
+        default:
+            var tarea = false;
+            console.log('Estoy ocupado :c');
+        break;
+    }
+
+    function SeleccionarTarea(tipoDeTarea) {
+        switch(tipoDeTarea) {
+            case 'Barrer':
+                var escoba = true;
+                console.log('Barriendo');
+            break;
+            case 'Trapear':
+                var trapeador = true;
+                var cubeta = true;
+                console.log('Trapeando');
+            break;
+            case 'Trastos':
+                var esponja = true;
+                console.log('Lavando los trastes');
+            break;
+            case 'Baños':
+                var cepillo = true;
+                var esponja = true;
+                var trapo = true;
+                console.log('Lavando el baño');
+            break;
+            case 'Camas':
+                var cobijas = true;
+                console.log('Tendiendo las camas');
+            break;
+            case 'Cocina':
+                var esponjaMetal = true;
+                console.log('Limpiando la cocina');
+            break;
+            default:
+                var tarea = false;
+                console.log('Estoy ocupado :c');
+            break;
+        }
+    }
+
+    SeleccionarTarea('Barrer');
+
+    var kevin = {
+        nombre: "Kevin",
+        apellido: "Martin del Campo"
+        edad: 26
+    };
+
+    kevin.nombre -> Extraer el valor de la propiedad nombre del objeto en la variable kevin.
+    kevin["nombre"] -> Es exactamente lo mismo que arriba. Es una hashing de la propiedad.
+    La ventaja de esto es que se puede hacer una propiedad de este tipo:
+    kevin["Nombre Completo"] = "Mi nombre completo";
+    Esto debido a que kevin.Nombre Completo no es una sintaxis válida.
+
+
+
+* Qué es bootstrap?: Es una librería de estilos (CSS).
+    - Simplifica el esfuerzo en diseñar o generar estilos.
+    - Contiene una serie de elementos útilos, como tarjetas, sliders, etc.
+    - Tiene un sistema de rejillas: Grid System.
+        - Te permite crear contenedores divididos por rows, y complejos
+        <div class="container">
+            <div class="row">
+                <div class="col-12"></div>
+                <div class="col-sm-12"></div>
+                <div class="col-md-12"></div>
+                <div class="col-lg-12"></div>
+                <div class="col-xl-12"></div>
+            </div>
+        </div>
+
+
+
+* Qué es NodeJS: Es un motor de ejecución de JavaScript. Ejecuta código de JS como aplicación de escritorio.
+Su uso principal es desarrollar servicios Web...
+
+
+
+* Qué es servicio web: También conocido como Web API o Web Service es un conjunto de aplicativos REST, o sea, peticiones HTTP que generan cierta información.
+
+
+
+* Comandos de NodeJS:
+ - npm init -> Inicializa un proyecto de NodeJS.
+ - npm install [modulo] -> Instala módulos a través del npm en internet.
+ - node archivo.JS -> Ejecutar una aplicación de JS
+
+
+
+
+* Hacer un proyecto de NodeJS en un folder llamado HolaNodeJS. Dicho proyecto tendrá un archivo principal y lo único que hará será escribir en la consola "Hola NodeJS".
+* Modifique el archivo del ejercicio anterior y haga que el mensaje del hola provenga de una función que recibe de parámetro un saludo e imprima en la consola "Hola, texto del saludo": "Hola, Kevin, buenos días".
+
+
+
+* Qué es Express: Es un módulo de NodeJS que permite crear web services robustos y de manera muy sencilla.
+
+
+
+* Hacer un servicio con 3 endpoints: /map, /images, /search.
+El servicio del /map retornará el objeto: { map: true, location: { lat: 123, long: 123 } }
+    -Los valores de lat y long, deben recibirse desde el Query de la petición
+    http://localhost:1010/map?lat=1234&long=5678
+    //req.query.lat
+    //req.query.long
+    //{ map: true, location: { lat: req.query.lat, long: req.query.long } }
+El servicio del /images retornará el objeto: { image: true, url: "url de imagen" }
+    -El valor de url de imagen debe recibirse desde el params de la petición
+    http://localhost:1010/images/:imageURL
+    http://localhost:1010/images/url de imagen
+    //{ image: true, url: req.params.imageURL }
+El servicio del /search retornará el objeto: { search: true, query: "busqué pan" }
+    -El valor de query debe venir dentro del body de la petición
+    http://localhost:1010/search
+    body: { "query": "busqué pan" }
+    //req.body.query
+    //{ search: true, query: req.body.query }
+
+* Modificar la actividad anterior, pero esos endpoints deben venir de un router cada uno y solo deben aceptar el método GET.
+
+* Añadir al proyecto 3 modelos:
+    - Un modelo que represente autos
+        *marca
+        *modelo
+        *año
+        *hp
+        *color
+        *serie
+    - Un modelo que represente una reservación de hotel 
+        *nombre
+        *fechaEntrada
+        *fechaSalida
+        *numHabitacion
+        *personaReserva
+    - Un modelo para representar un vuelo
+        *aerolínea
+        *fechaSalida
+        *fechaRegreso
+        *destinoSalida
+        *destinoRegreso
+        *numAsiento

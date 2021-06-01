@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+   <head>
+      <meta charset="utf-8">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+   </head>
+   <body>
+      <div class="content">
+         <div class="text">
+            Welcome!
+         </div>
+         <form>
+            <div class="field">
+               <input type="text" (input)='UpdateValue($event,"nickname")' placeholder='Nickname' required>
+               <span class="fas fa-user"></span>
+            </div>
+            <div class="field">
+               <input type="text" (input)='UpdateValue($event,"name")' placeholder='Name' required>
+               <span class="fas fa-user"></span>
+            </div>
+            <div class="field">
+               <input type="text" (input)='UpdateValue($event,"lastname")' placeholder='LastName' required>
+               <span class="fas fa-user"></span>
+            </div>
+            
+            <div class="field">
+               <input type="text" (input)='UpdateValue($event,"email")' placeholder='Email' required>
+               <span class="fas fa-user"></span>
+            </div>
+            <div class="field">
+               <input type="password" (input)='UpdateValue($event,"password")' required placeholder='Password'>
+               <span class="fas fa-lock"></span>
+            </div>
+            <div class="field">
+               <input type="number" (input)='UpdateValue($event,"phone")'  placeholder='Phone' required>
+               <span class="fas fa-user"></span>
+            </div>
+            <div>Adress:</div>
+            <div class="field">
+               <input type="text" (input)='UpdateValue($event,"street")' placeholder='Street' required>
+               <span class="fas fa-user"></span>
+            </div>
+            <div class="field">
+               <input type="text" (input)='UpdateValue($event,"suburb")' placeholder='Suburb' required>
+               <span class="fas fa-user"></span>
+            </div>
+            <div class="field">
+               <input type="text" (input)='UpdateValue($event,"city")' placeholder='City' required>
+               <span class="fas fa-user"></span>
+            </div>
+            <div class="field">
+               <input type="text" (input)='UpdateValue($event,"state")' placeholder='State' required>
+               <span class="fas fa-user"></span>
+            </div>
+            <div class="field">
+               <input type="text" (input)='UpdateValue($event,"zip")' placeholder='Zip' required>
+               <span class="fas fa-user"></span>
+            </div>
+            <!-- </div> -->
+            <button (click)=Register();>Register</button>
+            <div class="login-error" [hidden]="!invalidLogin">Something is wrong :(</div>
+         </form>
+      </div>
+   </body>
+</html>
