@@ -10,6 +10,9 @@ import { LoginComponent } from '../login/login';
 import { RegisterComponent } from '../register/register';
 import { AccountComponent } from '../account/account';
 import { CartComponent } from '../cart/cart';
+import { CheckoutComponent } from '../checkout/checkout';
+
+import { LoaderComponent } from '../loader/loader';
 
 const routes: Routes = [
   { path: 'catalog', component: CatalogComponent },
@@ -18,6 +21,7 @@ const routes: Routes = [
   { path: 'register', component: RegisterComponent },
   { path: 'account', component: AccountComponent },
   { path: 'cart', component: CartComponent },
+  { path: 'checkout', component: CheckoutComponent }
 ];
 //Es importante asignar el nombre igual al que exportamos en el archivo component.ts
 //Ejemplo: Si mi componente es catalogo.component.ts, entonces debo importar CatalogoComponent

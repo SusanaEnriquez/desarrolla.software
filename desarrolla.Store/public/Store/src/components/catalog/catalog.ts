@@ -23,17 +23,20 @@ export class CatalogComponent implements OnInit { //Cambiar el nombre de AppComp
 
   GetProducts(){
   var self = this; 
+  Singleton.GetInstance().ShowLoader();
       $.ajax({
         type: "GET",
         url: 'http://localhost:678/products/all', 
         success: function(res: any){
           self.products = res;
+          Singleton.GetInstance().HideLoader();
         }
       });
   }
 
   AddToCart(sku: String) {
     var self = this;
+    Singleton.GetInstance().ShowLoader();
     $.ajax({
       type: "PATCH",
       xhrFields: { //Esto permite compartir cookies
@@ -47,6 +50,7 @@ export class CatalogComponent implements OnInit { //Cambiar el nombre de AppComp
       success: function (res: any) {
         $(".toast").toast('show');
         Singleton.GetInstance().ReloadCart();
+        Singleton.GetInstance().HideLoader();
         //console.log('Add to cart: ');
         //console.log(res);
       }

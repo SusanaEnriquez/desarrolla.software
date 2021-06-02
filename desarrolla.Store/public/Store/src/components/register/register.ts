@@ -18,7 +18,7 @@ import {
       xhrFields: { //Esto permite compartir cookies
         withCredentials: true
       },
-      url: 'http://localhost:666/users/register',
+      url: 'http://localhost:678/users/register',
       data: {
         nickname: this.nickname,
         name: this.name,

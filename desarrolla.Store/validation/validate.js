@@ -8,7 +8,9 @@ module.exports = {
             name: Joi.string().required(),
             lastName: Joi.string().required(),
             email: Joi.string().email().required(),
-            password: Joi.string().min(8).required()
+            password: Joi.string().min(8).required(),
+            address: Joi.object().optional(),
+            phone: Joi.number().optional()
         });
         return schema.validate(data);
     },

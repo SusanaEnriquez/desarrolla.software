@@ -11,54 +11,54 @@
          </div>
          <form>
             <div class="field">
-               <input type="text" (input)='UpdateValue($event,"nickname")' placeholder='Nickname' required>
+               <input type="text" (input)='UpdateValue($event,"nickname")' placeholder='Nickname'>
                <span class="fas fa-user"></span>
             </div>
             <div class="field">
-               <input type="text" (input)='UpdateValue($event,"name")' placeholder='Name' required>
+               <input type="text" (input)='UpdateValue($event,"name")' placeholder='Name'>
                <span class="fas fa-user"></span>
             </div>
             <div class="field">
-               <input type="text" (input)='UpdateValue($event,"lastname")' placeholder='LastName' required>
+               <input type="text" (input)='UpdateValue($event,"lastname")' placeholder='LastName'>
                <span class="fas fa-user"></span>
             </div>
             
             <div class="field">
-               <input type="text" (input)='UpdateValue($event,"email")' placeholder='Email' required>
+               <input type="text" (input)='UpdateValue($event,"email")' placeholder='Email'>
                <span class="fas fa-user"></span>
             </div>
             <div class="field">
-               <input type="password" (input)='UpdateValue($event,"password")' required placeholder='Password'>
+               <input type="password" (input)='UpdateValue($event,"password")' placeholder='Password'>
                <span class="fas fa-lock"></span>
             </div>
             <div class="field">
-               <input type="number" (input)='UpdateValue($event,"phone")'  placeholder='Phone' required>
+               <input type="number" (input)='UpdateValue($event,"phone")'  placeholder='Phone'>
                <span class="fas fa-user"></span>
             </div>
             <div>Adress:</div>
             <div class="field">
-               <input type="text" (input)='UpdateValue($event,"street")' placeholder='Street' required>
+               <input type="text" (input)='UpdateValue($event,"street")' placeholder='Street'>
                <span class="fas fa-user"></span>
             </div>
             <div class="field">
-               <input type="text" (input)='UpdateValue($event,"suburb")' placeholder='Suburb' required>
+               <input type="text" (input)='UpdateValue($event,"suburb")' placeholder='Suburb'>
                <span class="fas fa-user"></span>
             </div>
             <div class="field">
-               <input type="text" (input)='UpdateValue($event,"city")' placeholder='City' required>
+               <input type="text" (input)='UpdateValue($event,"city")' placeholder='City'>
                <span class="fas fa-user"></span>
             </div>
             <div class="field">
-               <input type="text" (input)='UpdateValue($event,"state")' placeholder='State' required>
+               <input type="text" (input)='UpdateValue($event,"state")' placeholder='State'>
                <span class="fas fa-user"></span>
             </div>
             <div class="field">
-               <input type="text" (input)='UpdateValue($event,"zip")' placeholder='Zip' required>
+               <input type="text" (input)='UpdateValue($event,"zip")' placeholder='Zip'>
                <span class="fas fa-user"></span>
             </div>
             <!-- </div> -->
             <button (click)=Register();>Register</button>
-            <div class="login-error" [hidden]="!invalidLogin">Something is wrong :(</div>
+            <div class="login-error" [hidden]="!invalidLogin">Something is wrong :( ({{registerFailureReason}})</div>
          </form>
       </div>
    </body>

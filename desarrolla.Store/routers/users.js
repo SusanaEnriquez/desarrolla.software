@@ -5,6 +5,24 @@ const User = require('../models/user'); // importar nuestro modelo de datos
 const Validate = require('../validation/validate'); // Importar el modulo de validate
 const Utils = require('../utils/utils'); //Importar el módulo de utilities
 
+router.get('/getSession', async (req, res) => {
+    const nickname = req.cookies["SESSIONID"];
+    var user = await User.findOne({
+        nickname: nickname
+    });
+
+    if(user) {
+        return res.send({
+            session: true
+        });
+    }
+
+    res.clearCookie("SESSIONID");
+    return res.send({
+        session: false
+    });
+});
+
 // localhost:678/users/all -> GET
 router.get('/all', async (req, res) => {
     var userIsAdmin = await Utils.isAdmin(req, res);
@@ -17,18 +35,25 @@ router.get('/all', async (req, res) => {
     res.send(users);
 });
 
-router.get('/:nickname', async (req, res) => {
-    var parametros = req.params;
-    var nickname = parametros.nickname; 
+router.get('/profile', async (req, res) => {
 
-    var user = await User.findOne({ nickname: nickname }, {__v: 0, _id: 0, password:0});
-    // findOne puede regresar null o el usuario 
-    if (!user){
-        // User no existe
+    var nickname = req.cookies["SESSIONID"];
+
+    var user = await User.findOne({
+        nickname: nickname
+    }, {
+        __v: 0,
+        _id: 0,
+        password: 0
+    });
+    //findOne puede regresar null o el usuario
+    if (!user) {
+        //User no existe
         return res.status(404).send({
-            message: 'El usuario: ' + nickname + ' no existe'
+            message: "El usuario: " + nickname + " no existe"
         });
     }
+
     return res.send(user);
 });
 
@@ -54,13 +79,7 @@ router.post('/register', async (req, res) => {
         }
 
     
-    var usuarioRegistrado = new User({
-        nickname: datosUsuario.nickname,
-        name: datosUsuario.name,
-        lastName: datosUsuario.lastName,
-        email: datosUsuario.email,
-        password: datosUsuario.password,
-    });
+    var usuarioRegistrado = new User(datosUsuario);
 
     await usuarioRegistrado.save();
     res.send({
@@ -142,6 +161,12 @@ router.put('/:nickname', async (req, res) => {
             
             case "address":
                 user.address = userData.address
+                break;
+
+            case "userType":
+                if (userIsAdmin) {
+                    user.userType = userData.userType;
+                }
                 break;
             }
     }

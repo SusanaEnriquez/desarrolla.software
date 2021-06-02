@@ -18,10 +18,34 @@ export class HeaderComponent implements OnInit{
     this.ReloadCart();
     var self = this;
     Singleton.GetInstance().ReloadCart = function() { self.ReloadCart(); };
+    this.CheckSession();
+  }
+
+  CheckSession() {
+    var self = this;
+    $.ajax({
+      type: "GET",
+      xhrFields: { //Esto permite compartir cookies
+        withCredentials: true
+      },
+      url: "http://localhost:678/users/getSession",
+      success: function(result: any) {
+        if(result.session === true) {
+          if(window.location.pathname === '/register' || window.location.pathname === '/login') {
+            window.location.href = '/';
+          }
+          self.accountRedirect = "Mi Cuenta";
+        }
+      },
+      error: function() {
+        self.accountRedirect = "Login";
+      }
+    });
   }
 
   ReloadCart(){
     var self = this;
+    Singleton.GetInstance().ShowLoader();
     $.ajax({
       type: "GET",
       xhrFields: { //Esto permite compartir cookies
@@ -30,6 +54,7 @@ export class HeaderComponent implements OnInit{
       url: "http://localhost:678/carts/getCart",
       success: function (cartInfo: any) {
         self.numberProducts = cartInfo.quantity;
+        Singleton.GetInstance().HideLoader();
         //console.log('Carrito: ')
         //console.log(cartInfo);
       }

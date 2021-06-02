@@ -1,6 +1,7 @@
 import {
     Component
   } from '@angular/core';
+  import { Singleton } from '../../refactoring/DataSingleton';
   declare var $:any;
   
   @Component({
@@ -14,6 +15,7 @@ import {
 
     Login(){
        var self = this;
+       Singleton.GetInstance().ShowLoader();
       $.ajax({
         type: 'POST',
         xhrFields: {
@@ -27,12 +29,14 @@ import {
         },
         success: function (res:any) {
           // console.log('Hizo login, ver cookies');
+          Singleton.GetInstance().HideLoader();
           self.invalidLogin = false;
           window.location.href = "/";
         },
         error: function(error:any){
           // console.log('No se hizo login');
           // console.log(error);
+          Singleton.GetInstance().HideLoader();
           self.invalidLogin = true;
         }
       });

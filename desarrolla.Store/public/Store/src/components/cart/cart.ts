@@ -30,7 +30,7 @@ export class CartComponent implements OnInit {
       xhrFields: {
         withCredentials: true
       },
-      url: "http://localhost:666/carts/getCart",
+      url: "http://localhost:678/carts/getCart",
       success: function (cartInfo: any) {
         if (cartInfo.products.length > 0) {
           self.products = cartInfo.products;
@@ -55,7 +55,7 @@ export class CartComponent implements OnInit {
         sku: sku,
         qty: 1
       },
-      url: "http://localhost:666/carts/add",
+      url: "http://localhost:678/carts/add",
       success: function (response: any) {
         self.GetCart();
       }
@@ -74,7 +74,7 @@ export class CartComponent implements OnInit {
         sku: sku,
         qty: 1
       },
-      url: "http://localhost:666/carts/remove",
+      url: "http://localhost:678/carts/remove",
       success: function (response: any) {
         self.GetCart();
       }
@@ -93,7 +93,7 @@ export class CartComponent implements OnInit {
         sku: sku,
         all: true
       },
-      url: "http://localhost:666/carts/remove",
+      url: "http://localhost:678/carts/remove",
       success: function (response: any) {
         self.GetCart();
       }
