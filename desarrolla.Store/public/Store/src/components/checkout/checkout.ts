@@ -20,9 +20,52 @@ import {
   
     ngOnInit() {
       this.GetUserData();
+      var self = this;
+      Singleton.GetInstance().UpdateCheckout = function(cart:any){
+        self.cart = cart;
+        self.cart.products.push({
+            sku: 'Gastos de envio',
+            name: 'Gastos de envio',
+            qty: 1,
+            unit_price: self.gastosEnvio
+      });
+      self.cart.total += self.gastosEnvio;
+      };
+      
+      
+
       paypal.Buttons({
         createOrder: function (data: any, actions: any) {
           // This function sets up the details of the transaction, including the amount and line item details.
+          
+          
+          var articulos = new Array;
+          for (var i=0; i< self.cart.products.length; i++){
+            var product = {
+              name: '',
+              qty:0,
+              unit_price:0,
+              sku: ''
+            };
+            
+            product = self.cart.products[i];
+            articulos.push({
+              name: product.name,
+              quantity: product.qty,
+              unit_amount: {
+                currency_code: 'MXN',
+                value: (product.unit_price - product.unit_price*0.16).toFixed(2)
+              },
+              tax:{
+                currency_code: 'MXN',
+                value: (product.unit_price*0.16).toFixed(2)
+              },
+              sku: product.sku
+            });
+          }
+
+          
+
           return actions.order.create({
             purchase_units: [{
               amount: {
@@ -30,21 +73,26 @@ import {
                 breakdown: {
                   item_total: {
                     currency_code: 'MXN',
-                    value: 8.4
+                    value: (self.cart.total * 0.84).toFixed(2)
                   },
                   tax_total: {
                     currency_code: 'MXN',
-                    value: 1.6
+                    value: (self.cart.total * 0.16).toFixed(2)
                   }
                 },
-                value: 10.00 //Total a pagar
-              }
+                value: self.cart.total //Total a pagar
+              },
+              items: articulos
             }]
           });
         }
       }).render('#paypal-payment');
     }
   
+    GetCart(cart:any){
+      this.cart = cart;
+    }
+
     GetUserData() {
       var self = this;
       Singleton.GetInstance().ShowLoader();
@@ -130,4 +178,10 @@ import {
       email: '',
       phone: '',
     }
+    gastosEnvio =220;
+    cart = {
+      quantity:0,
+      total:0,
+      products:new Array
+    };
   }

@@ -32,8 +32,22 @@
       </article>
   
       <article class="col-3">
-        <h2>&nbsp;</h2>
-        <div id="paypal-payment" class="py-4"></div>
+        <h2>Resumen</h2>
+        <hr>
+        <section *ngIf="cart.quantity > 0 else emptyCart">
+          <!-- <h3>Details:</h3>
+          <hr> -->
+          <h4>Num. Products: {{cart.products.length-1}}</h4>
+          <h4 class="text-end">Subtotal: ${{cart.total*0.84}}</h4>
+          <h4 class="text-end">IVA: ${{cart.total*0.16}}</h4>
+          <hr>
+          <h4 class="text-end">Total: ${{cart.total}}</h4>
+          <hr>
+        </section>
+        <ng-template #emptyCart>
+          <h3>The cart is empty</h3>
+        </ng-template>
+        <div [hidden]="cart.quantity === 0" id="paypal-payment"></div>
       </article>
     </div>
   </section>
