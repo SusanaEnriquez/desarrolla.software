@@ -1,8 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
 :root {
     --color-white: #EEEEEE;
-    --color-footer: #cfcfcf;
-    --color-blue: #00ADB5;
+    --color-footer: #dde1e7;
+    --color-blue: #2980b9;
+    --color-purple: #8e44ad;
     --color-gray: #393E46;
     --color-black: #222831;
 }

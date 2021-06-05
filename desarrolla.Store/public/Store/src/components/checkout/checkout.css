@@ -1,6 +1,7 @@
 .list-group {
     width: 100%;
     font-size: 1.4rem;
+    border-radius: 10px;
 }
 
 .bi {
@@ -17,4 +18,5 @@ input[type=text] {
 
 input[type=text]:active {
     outline: 0;
+    border-bottom: 2px solid var(--color-purple);
 }

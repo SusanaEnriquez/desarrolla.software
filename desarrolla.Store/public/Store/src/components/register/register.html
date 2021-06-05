@@ -5,61 +5,81 @@
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
    </head>
    <body>
-      <div class="content">
-         <div class="text">
-            Welcome!
-         </div>
-         <form>
-            <div class="field">
-               <input type="text" (input)='UpdateValue($event,"nickname")' placeholder='Nickname'>
-               <span class="fas fa-user"></span>
+        <div class="content">
+         <section class="row register-form p-5">
+            <div class="text">
+               Welcome!
             </div>
-            <div class="field">
-               <input type="text" (input)='UpdateValue($event,"name")' placeholder='Name'>
-               <span class="fas fa-user"></span>
-            </div>
-            <div class="field">
-               <input type="text" (input)='UpdateValue($event,"lastname")' placeholder='LastName'>
-               <span class="fas fa-user"></span>
-            </div>
-            
-            <div class="field">
-               <input type="text" (input)='UpdateValue($event,"email")' placeholder='Email'>
-               <span class="fas fa-user"></span>
-            </div>
-            <div class="field">
-               <input type="password" (input)='UpdateValue($event,"password")' placeholder='Password'>
-               <span class="fas fa-lock"></span>
-            </div>
-            <div class="field">
-               <input type="number" (input)='UpdateValue($event,"phone")'  placeholder='Phone'>
-               <span class="fas fa-user"></span>
-            </div>
-            <div>Adress:</div>
-            <div class="field">
-               <input type="text" (input)='UpdateValue($event,"street")' placeholder='Street'>
-               <span class="fas fa-user"></span>
-            </div>
-            <div class="field">
-               <input type="text" (input)='UpdateValue($event,"suburb")' placeholder='Suburb'>
-               <span class="fas fa-user"></span>
-            </div>
-            <div class="field">
-               <input type="text" (input)='UpdateValue($event,"city")' placeholder='City'>
-               <span class="fas fa-user"></span>
-            </div>
-            <div class="field">
-               <input type="text" (input)='UpdateValue($event,"state")' placeholder='State'>
-               <span class="fas fa-user"></span>
-            </div>
-            <div class="field">
-               <input type="text" (input)='UpdateValue($event,"zip")' placeholder='Zip'>
-               <span class="fas fa-user"></span>
-            </div>
-            <!-- </div> -->
-            <button (click)=Register();>Register</button>
-            <div class="login-error" [hidden]="!invalidRegister">Something is wrong :( ({{registerFailureReason}})</div>
-         </form>
-      </div>
+           <div class="col-6 ">
+             <article class="d-table w-100">
+               <div class="d-table-cell w-100 h-100 align-middle">
+                  <div class="field">
+                     <input type="text" (input)='UpdateValue($event,"nickname")' placeholder='Nickname'>
+                     <span class="fas fa-user"></span>
+                  </div>
+       
+                  <div class="field">
+                     <input type="text" (input)='UpdateValue($event,"name")' placeholder='Name'>
+                     <span class="fas fa-user"></span>
+                  </div>
+       
+                  <div class="field">
+                     <input type="text" (input)='UpdateValue($event,"lastname")' placeholder='LastName'>
+                     <span class="fas fa-user"></span>
+                  </div>
+       
+                  <div class="field">
+                     <input type="text" (input)='UpdateValue($event,"email")' placeholder='Email'>
+                     <span class="bi bi-envelope-fill"></span>
+                        
+                  </div>
+       
+                  <div class="field">
+                     <input type="password" (input)='UpdateValue($event,"password")' placeholder='Password'>
+                     <span class="fas fa-lock"></span>
+                  </div>
+
+                  <div class="field">
+                     <input type="number" (input)='UpdateValue($event,"phone")'  placeholder='Phone'>
+                     <span class="bi bi-telephone-fill"></span>
+                  </div>
+               </div>
+             </article>
+           </div>
+           <div class="col-6">
+             <article class="d-table w-100">
+               <div class="field">
+                  <input type="text" (input)='UpdateValue($event,"street")' placeholder='Street'>
+                  <span class="bi bi-geo-alt-fill"></span>
+               </div>
+       
+               <div class="field">
+                  <input type="text" (input)='UpdateValue($event,"suburb")' placeholder='Suburb'>
+                  <span class="bi bi-geo-alt-fill"></span>
+               </div>
+       
+               <div class="field">
+                  <input type="text" (input)='UpdateValue($event,"city")' placeholder='City'>
+                  <span class="bi bi-geo-alt-fill"></span>
+               </div>
+       
+               <div class="field">
+                  <input type="text" (input)='UpdateValue($event,"state")' placeholder='State'>
+                  <span class="bi bi-geo-alt-fill"></span>
+               </div>
+       
+               <div class="field">
+                  <input type="text" (input)='UpdateValue($event,"zip")' placeholder='Zip'>
+                  <span class="bi bi-geo-alt-fill"></span>
+               </div>
+
+               <button (click)=Register();>Register</button>
+             </article>
+           </div>
+           <div class="col-12">
+            <div class="register-error" [hidden]="!invalidRegister">Something is wrong :(  <br> {{registerFailureReason}} </div>
+           </div>
+         </section>
+       </div>
    </body>
 </html>

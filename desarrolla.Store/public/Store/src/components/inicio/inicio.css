@@ -1,11 +1,13 @@
 #sliderInicio {
-    width: 100%;
-    height: 30rem;
+    margin: 0 auto 0 auto;
+    width: 90%;
+    height: 20rem;
 }
 
 #sliderInicio img {
-    width: 100%;
-    height: 30rem;
+    margin: 0 auto 0 auto;
+    width: 90%;
+    height: 20rem;
 }
 
 #sliderInicio button:hover {
@@ -35,3 +37,6 @@
     justify-content: center;
 }
 
+h3{
+    color: dimgray;
+}

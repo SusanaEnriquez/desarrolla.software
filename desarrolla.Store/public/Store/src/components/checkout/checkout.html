@@ -1,32 +1,32 @@
 <section class="container py-5">
     <div class="row">
       <article class="col-9">
-        <h2><i class="bi bi-info-circle-fill"></i>Información de envío</h2>
+        <h2><i class="bi bi-info-circle-fill"></i>Shipping information</h2>
         <hr>
         <ul class="list-group">
-          <li class="list-group-item"><i class="bi bi-person-fill"></i>Nombre:
+          <li class="list-group-item"><i class="bi bi-person-fill"></i>Name:
             <input type="text" (input)="UpdateValue($event, 'name')" [value]="userData.name">
           </li>
-          <li class="list-group-item"><i class="bi bi-person-fill"></i>Apellidos:
+          <li class="list-group-item"><i class="bi bi-person-fill"></i>lastName:
             <input type="text" (input)="UpdateValue($event, 'lastName')" [value]="userData.lastName"></li>
           <li class="list-group-item"><i class="bi bi-envelope-fill"></i>Email:
             <input type="text" (input)="UpdateValue($event, 'email')" [value]="userData.email"></li>
-          <li class="list-group-item"><i class="bi bi-telephone-fill"></i>Teléfono:
+          <li class="list-group-item"><i class="bi bi-telephone-fill"></i>Phone:
             <input type="text" (input)="UpdateValue($event, 'phone')" [value]="userData.phone"></li>
         </ul>
   
-        <h2 class="mt-5"><i class="bi bi-geo-alt-fill"></i>Dirección de envío</h2>
+        <h2 class="mt-5"><i class="bi bi-geo-alt-fill"></i>Shipping address</h2>
         <hr>
         <ul class="list-group">
-          <li class="list-group-item"><i class="bi bi-geo-fill"></i>Calle:
+          <li class="list-group-item"><i class="bi bi-geo-fill"></i>Street:
             <input type="text" (input)="UpdateValue($event, 'street')" [value]="userData.address.street"></li>
-          <li class="list-group-item"><i class="bi bi-geo-fill"></i>Colonia:
+          <li class="list-group-item"><i class="bi bi-geo-fill"></i>Suburb:
             <input type="text" (input)="UpdateValue($event, 'suburb')" [value]="userData.address.suburb"></li>
-          <li class="list-group-item"><i class="bi bi-geo-fill"></i>Ciudad:
+          <li class="list-group-item"><i class="bi bi-geo-fill"></i>City:
             <input type="text" (input)="UpdateValue($event, 'city')" [value]="userData.address.city"></li>
-          <li class="list-group-item"><i class="bi bi-geo-fill"></i>Estado:
+          <li class="list-group-item"><i class="bi bi-geo-fill"></i>State:
             <input type="text" (input)="UpdateValue($event, 'state')" [value]="userData.address.state"></li>
-          <li class="list-group-item"><i class="bi bi-geo-fill"></i>Código Postal:
+          <li class="list-group-item"><i class="bi bi-geo-fill"></i>Zip:
             <input type="text" (input)="UpdateValue($event, 'zip')" [value]="userData.address.zip"></li>
         </ul>
       </article>
