@@ -38,7 +38,25 @@ import {
         createOrder: function (data: any, actions: any) {
           // This function sets up the details of the transaction, including the amount and line item details.
           
+          // Validar que haya datos antes de mostrar el paypal
+          if(
+            self.userData.name === '' ||
+            self.userData.lastName === '' ||
+            self.userData.email === '' ||
+            self.userData.phone === '' ||
+            self.userData.address.city === '' ||
+            self.userData.address.street === '' ||
+            self.userData.address.state === '' ||
+            self.userData.address.suburb === '' ||
+            self.userData.address.zip === ''
+          ) {
+            document.documentElement.style.setProperty('--required-status', 'var(--error-color)');
+            self.validInfo = false;
+            return;
+          }
           
+          self.validInfo = true;
+          document.documentElement.style.setProperty('--required-status', 'var(--color-purple)');
           var articulos = new Array;
           for (var i=0; i< self.cart.products.length; i++){
             var product = {
@@ -84,6 +102,33 @@ import {
               },
               items: articulos
             }]
+          });
+        },
+        onApprove: function(data: any, actions: any) {
+          // This function captures the funds from the transaction.
+          return actions.order.capture().then(function(details: any) {
+            // This function shows a transaction success message to your buyer.
+            Singleton.GetInstance().ShowLoader();
+            $.ajax({
+              type: 'POST',
+              url: 'http://localhost:678/orders',
+              xhrFields: { //Esto permite compartir cookies
+                withCredentials: true
+              },
+              data: {
+                email: self.userData.email,
+                phone: self.userData.phone,
+                address: self.userData.address
+              },
+              success: function(order: any) {
+                if(order.valid) {
+                  window.location.href = '/confirmation?order=' + order.orderID
+                }
+              },
+              error: function(error: any) {
+                console.log(error)
+              }
+            })
           });
         }
       }).render('#paypal-payment');
@@ -184,4 +229,5 @@ import {
       total:0,
       products:new Array
     };
+    validInfo = true;
   }

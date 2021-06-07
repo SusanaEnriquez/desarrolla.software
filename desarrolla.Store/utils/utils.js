@@ -27,12 +27,17 @@ module.exports = {
         return false;
     },
 
+    genOrderID: function(){
+        return Date.now();
+    },
+
     genCartID: function(){
         // genra un ID unico 
         var epoch = Date.now() + '' +  Date.now() + '' +  Date.now();
        epoch = Buffer.from(epoch).toString('base64');
        return epoch;
     },
+    
     validateCart: async function(carrito) {
         /*var carrito = await Cart.findOne({
             id: cartID

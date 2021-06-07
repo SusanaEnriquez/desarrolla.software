@@ -6,6 +6,9 @@
     --color-purple: #8e44ad;
     --color-gray: #393E46;
     --color-black: #222831;
+    --error-color: #c05a5a;
+
+    --required-status: var(--color-purple);
 }
 
 body {
