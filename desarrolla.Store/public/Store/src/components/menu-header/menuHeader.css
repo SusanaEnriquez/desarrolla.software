@@ -27,7 +27,12 @@ a:hover {
     transition: 0.3s color;
 }
 
+a:last-child{
+    margin-right: 1rem;
+}
+
 .logo {
+    margin-left: 1rem;
     height: 2.4rem;
     width: 2.4rem;
     background-color: dimgray;

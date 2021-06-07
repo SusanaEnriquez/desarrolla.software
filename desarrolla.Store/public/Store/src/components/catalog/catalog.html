@@ -1,11 +1,11 @@
 <main class="container py-3">
-  <h1>desarrolla.Store - Catálogo de productos</h1>
+  <h1>Products</h1>
   <article class="row">
-    <section class="filtro col-3">
+    <!-- <section class="filtro col-3">
       <h3>Filtros de búsqueda</h3>
       <input type="checkbox" name="Filtro tal" id="filtro1">
       <label for="filtro1">Filtro 1</label>
-    </section>
+    </section> -->
     <section class="col-9 px-2">
       <div *ngFor="let product of products" class="card product-card">
         <div [id]="'slider-' + product.sku" class="carousel slide" data-bs-ride="carousel">
@@ -42,7 +42,7 @@
   aria-atomic="true" data-bs-animation="true" data-bs-autohide="true" data-bs-delay="2000">
   <div class="d-flex">
     <div class="toast-body">
-      Se ha añadido el producto al carrito
+      Product has been added to your cart!
     </div>
     <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"
       aria-label="Close"></button>

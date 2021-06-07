@@ -1,7 +1,37 @@
 div{
-    color: green;
+    color: black;
 }
 
 div i{
-    font-size: 8rem;
+    font-size: 6rem;
+    color: var(--color-purple);
 }
+
+.continue-button {
+    padding: 0.5rem 2rem;
+    background: var(--color-blue);
+    border: 0;
+    border-radius: 10px;
+    color: var(--color-white);
+    width: 100%;
+    margin: 2em 0;
+    font-weight: bold;
+  }
+  
+  .continue-button:hover {
+    background: var(--color-purple);
+    color: var(--color-white);
+  }
+
+  section{
+    color: rgba(128, 128, 128, 0.699);
+  }
+
+  .iink{
+    font-weight: bold;
+  }
+
+ .cuadro{
+      margin: 0 25%;
+      width: 50%;
+  }

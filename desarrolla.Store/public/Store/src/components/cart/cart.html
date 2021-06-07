@@ -1,10 +1,11 @@
 <section class="container py-5">
   <div class="row title">
-    <h2>Carrito de compras
-      <button class="btn clean-button" (click)="CleanCart()">
-        <i class="bi bi-trash-fill"></i>&nbsp;Limpiar carrito
+    <h2>Shopping cart
+      <button class="btn btn-outline clean-button" (click)="CleanCart()">
+        <i class="bi bi-trash-fill"></i>&nbsp;Clean cart
       </button>
     </h2>
+    <hr>
     <div class="col-6 line-border"></div>
   </div>
   <div class="row">
@@ -13,9 +14,9 @@
         <thead>
           <tr>
             <th scope="col"></th>
-            <th scope="col">Producto</th>
-            <th scope="col">Cantidad</th>
-            <th scope="col">Precio</th>
+            <th scope="col">Product</th>
+            <th scope="col">Quantity</th>
+            <th scope="col">Price</th>
             <th scope="col"></th>
           </tr>
         </thead>
@@ -25,8 +26,8 @@
                 <img [src]="product.images[0]">
             </td>
             <td class="product-detail">
+              <div [title]="product.sku"># {{product.sku}}</div>
               <div [title]="product.name">{{product.name}}</div>
-              <div [title]="product.sku">#{{product.sku}}</div>
               <div [title]="product.description">{{product.description}}</div>
             </td>
             <td>
@@ -53,11 +54,11 @@
           <span class="cart-total">Total: ${{total}}</span>
       </section>
       <section>
-        <a href="/checkout" class="btn pay-a">Continuar</a>
+        <a href='/checkout' class="btn pay-button">Continue</a>
       </section>
     </div>
     <ng-template #emptyCart>
-        <h3 class="py-5">No hay productos en el carrito</h3>
+        <h3 class="py-5">The cart is empty :(</h3>
     </ng-template>
   </div>
 </section>

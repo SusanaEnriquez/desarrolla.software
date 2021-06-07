@@ -1,6 +1,7 @@
 .list-group {
     width: 100%;
     font-size: 1.4rem;
+    border-radius: 10px;
 }
 
 .bi {
