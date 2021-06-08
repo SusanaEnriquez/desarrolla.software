@@ -36,13 +36,14 @@
   
       <article class="col-3">
         <h2>Resumen</h2>
+        <h6>Shipping cost is already added ( $200.00 )</h6>
         <hr>
         <section *ngIf="cart.quantity > 0 else emptyCart">
           <!-- <h3>Details:</h3>
           <hr> -->
           <h4>Num. Products: {{cart.products.length-1}}</h4>
-          <h4 class="text-end">Subtotal: ${{cart.total*0.84}}</h4>
-          <h4 class="text-end">IVA: ${{cart.total*0.16}}</h4>
+          <h4 class="text-end">Subtotal: ${{(cart.total*0.84).toFixed(2)}}</h4>
+          <h4 class="text-end">IVA: ${{(cart.total*0.16).toFixed(2)}}</h4>
           <hr>
           <h4 class="text-end">Total: ${{cart.total}}</h4>
           <hr>

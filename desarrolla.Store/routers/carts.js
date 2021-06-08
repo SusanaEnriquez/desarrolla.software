@@ -220,9 +220,9 @@ router.patch('/remove', async (req,res) => {
         });
     }
 
-    var productoExiste = carrito.products.some( prod => prod.sku === datosProducto.sku);
+    var productoExiste = carrito.products.some( prod => prod.sku === datoProducto.sku);
     if(productoExiste){
-        const i = carrito.products.findIndex( prod => prod.sku === datosProducto.sku);
+        const i = carrito.products.findIndex( prod => prod.sku === datoProducto.sku);
         const producto = carrito.products[i];
 
         if(datoProducto.all === true || producto.qty <= datoProducto.qty) {

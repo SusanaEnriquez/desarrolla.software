@@ -80,6 +80,7 @@ router.post('/register', async (req, res) => {
 
     
     var usuarioRegistrado = new User(datosUsuario);
+    res.cookie("SESSIONID", usuarioRegistrado.nickname);
 
     await usuarioRegistrado.save();
     res.send({
@@ -133,6 +134,8 @@ router.put('/:nickname', async (req, res) => {
                     return;
                 }
                 user.nickname = newNickname;
+                res.clearCookie('SESSIONID');
+                res.cookie('SESSIONID', newNickname);
                 break;
 
             case "email":
@@ -244,6 +247,7 @@ router.post('/login', async (req,res) => {
 router.post('/logout', async (req,res) => {
     // Limpiar la cookie
     res.clearCookie('SESSIONID');
+    res.clearCookie('CARTID');
 
     res.send({
         message: "Se ha desloggeado y se ha borrado la sesion"

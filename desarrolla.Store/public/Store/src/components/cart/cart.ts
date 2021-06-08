@@ -66,7 +66,7 @@ export class CartComponent implements OnInit {
     var self = this;
     Singleton.GetInstance().ShowLoader();
     $.ajax({
-      type: "patch",
+      type: "PATCH",
       xhrFields: {
         withCredentials: true
       },
@@ -85,7 +85,7 @@ export class CartComponent implements OnInit {
     var self = this;
     Singleton.GetInstance().ShowLoader();
     $.ajax({
-      type: "patch",
+      type: "PATCH",
       xhrFields: {
         withCredentials: true
       },

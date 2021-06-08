@@ -1,3 +1,4 @@
+<article *ngIf='numeroPedido !== null else confirmacionInvalida'>
 <div class="container py-5 text-center">
     <hr>
     <i class="bi bi-check-circle"></i>
@@ -14,3 +15,19 @@
     <h5>Your order will be shipped in approximately 3 to 7 business days.</h5>
     <a href="/catalog" class="btn continue-button mt-3">CONTINUE SHOPPING</a>
 </section>
+</article>
+
+<ng-template #confirmacionInvalida>
+    <div class="container py-5 text-center">
+        <hr>
+        <i class="bi bi-x-circle"></i>
+        <h5>Invalid</h5>
+        <h2>This order does not exist</h2>
+        <hr>
+    </div>
+    
+    <section class="text-center pt-2 container">
+        <h4>If you have any questions or concerns, please contact us at <a class="link" href="mailto:correo@algo.com">desarrolla.store</a> </h4>
+        <a href="/catalog" class="btn continue-button mt-3">CONTINUE SHOPPING</a>
+    </section>
+</ng-template>

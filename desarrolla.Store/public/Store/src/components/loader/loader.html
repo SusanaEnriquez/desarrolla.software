@@ -1,6 +1,15 @@
-<div *ngIf="active" class="loader d-flex">
+<!-- <div *ngIf="active" class="loading d-flex">
   <div class="spinner-border" role="status">
     <span class="visually-hidden">Loading...</span>
   </div>
-  <div class="loader-text">Please wait...</div>
+  <div class="loading-text">Please wait...</div>
+</div> -->
+
+
+<div *ngIf="active" class="d-flex loading">
+  <div class="loader">
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
 </div>

@@ -2,6 +2,10 @@ import {
     Component,
     OnInit
   } from '@angular/core';
+  import {
+    Singleton
+  } from '../../refactoring/DataSingleton';
+  declare var $: any;
   
   @Component({
     selector: 'confirmation', //Asignar un nombre de etiqueta, único
@@ -13,17 +17,26 @@ import {
   export class ConfirmationComponent implements OnInit { //Cambiar el nombre de AppComponent por el del nuestro
     ngOnInit(){
         // this.GetPedido();
+        var self = this;
+        Singleton.GetInstance().ShowLoader();
         var query = window.location.search;
         var result : any;
         result = query.match(/[Oo][Rr][Dd][Ee][Rr]=\w+/);
         if(result.length ===1){
           result = result[0].split('=');
           var numPedido = result[1];
-          console.log(numPedido);
-        } else{
-          // No se puede porque no existe un pedido vacio
-        }
-        
+          // console.log(numPedido);
+          $.ajax({
+            type: 'GET',
+            url: 'http://localhost:678/orders/validate' + numPedido,
+            success: function (res:any){
+              if(res.valid === true){
+                self.numeroPedido = numPedido;
+              }
+              Singleton.GetInstance().HideLoader();
+            }
+          });
+        }         
     }
 
     GetPedido(){
