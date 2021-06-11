@@ -1,12 +1,22 @@
 <main class="container py-3">
-  <h1>Products</h1>
+  <!-- <h1>Products</h1> -->
   <article class="row">
-    <!-- <section class="filtro col-3">
-      <h3>Filtros de búsqueda</h3>
+    <section class="filtro col-2">
+      <h3>SEARCH FILTERS</h3>
       <input type="checkbox" name="Filtro tal" id="filtro1">
-      <label for="filtro1">Filtro 1</label>
-    </section> -->
-    <section class="col-9 px-2">
+      <label for="filtro1">filter 1</label>
+      <br>
+      <input type="checkbox" name="Filtro tal" id="filtro2">
+      <label for="filtro2">filter 2</label>
+      <br>
+      <input type="checkbox" name="Filtro tal" id="filtro3">
+      <label for="filtro3">filter 3</label>
+      <br>
+      <input type="checkbox" name="Filtro tal" id="filtro4">
+      <label for="filtro4">filter 4</label>
+    </section>
+    <!-- <section class="col-9 px-2"> -->
+    <section class="col-10">
       <div *ngFor="let product of products" class="card product-card">
         <div [id]="'slider-' + product.sku" class="carousel slide" data-bs-ride="carousel">
           <div class="carousel-inner">
@@ -27,11 +37,15 @@
           </button>
         </div>
         <div class="card-body">
-          <span>{{product.name}} - ${{product.price}}</span>
+          <span>${{product.price}}</span> <br>
+          <span style="font-weight: bold;">{{product.name}}</span>
           <p class="card-text">
             {{product.description}}
           </p>
-          <button (click)="AddToCart(product.sku)" class="btn float-right">+</button>
+          <span>...</span>
+          <button (click)="AddToCart(product.sku)" class="btn float-right"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-lg" viewBox="0 0 16 16">
+            <path d="M8 0a1 1 0 0 1 1 1v6h6a1 1 0 1 1 0 2H9v6a1 1 0 1 1-2 0V9H1a1 1 0 0 1 0-2h6V1a1 1 0 0 1 1-1z"/>
+          </svg></button>
         </div>
       </div>
     </section>

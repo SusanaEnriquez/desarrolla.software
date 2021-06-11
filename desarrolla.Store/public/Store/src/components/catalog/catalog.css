@@ -1,6 +1,7 @@
 .filtro {
-    border: 0.3rem solid var(--color-blue);
+    border-right: 0.2rem solid var(--color-blue);
     color: var(--color-gray);
+    text-align: center;
 }
 
 .product-card {
@@ -29,9 +30,13 @@
 }
 
 .card-text {
-    height: 6rem;
+    height: 3rem;
     overflow: hidden;
     text-overflow: ellipsis;
+}
+
+p.card-text{
+    margin: 0 auto;
 }
 
 [type='checkbox']{
@@ -43,4 +48,8 @@
     bottom: 1rem;
     right: 1rem;
     background-color: var(--color-blue);
+}
+
+.container{
+    margin-top: 2rem;
 }

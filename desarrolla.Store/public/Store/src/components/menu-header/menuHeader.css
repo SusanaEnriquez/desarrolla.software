@@ -22,9 +22,11 @@ a, a:link {
 
 a:hover {
     color: #ffffff;
-    text-decoration: underline;
+    /* text-decoration: underline; */
     font-weight: bold;
     transition: 0.3s color;
+    animation: bounce; /* referring directly to the animation's @keyframe declaration */
+    animation-duration: 2s; /* don't forget to set a duration! */
 }
 
 a:last-child{
