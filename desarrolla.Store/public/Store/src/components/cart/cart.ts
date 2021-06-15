@@ -19,11 +19,20 @@ declare var $: any;
 export class CartComponent implements OnInit {
   ngOnInit() {
     this.GetCart();
+    var self = this;
+    Singleton.GetInstance().UpdateCartPage = function(cartInfo: any) {
+      if (cartInfo.products.length > 0) {
+          self.products = cartInfo.products;
+        } else {
+          self.products = null;
+        }
+        self.total = cartInfo.total;
+    }
   }
 
   GetCart() {
     Singleton.GetInstance().ReloadCart();
-    var self = this;
+    /* var self = this;
     Singleton.GetInstance().ShowLoader();
     $.ajax({
       type: "GET",
@@ -32,6 +41,20 @@ export class CartComponent implements OnInit {
       },
       url: "http://localhost:678/carts/getCart",
       success: function (cartInfo: any) {
+        //Mostrar un modal o mensaje con los issues
+        var issues = cartInfo.cart_issues;
+        if(issues.length) {
+          var messages = '';
+          for (var i = 0; i < issues.length; i++) {
+            const problema = issues[i];
+            messages += problema.issue + "<br>En Producto: " + problema.product.sku + "<br>Nombre: " + problema.product.name + "<hr>";
+          }
+
+          //Mostrar modal
+          alert(messages);
+        }
+
+        cartInfo = cartInfo.cart;
         if (cartInfo.products.length > 0) {
           self.products = cartInfo.products;
         } else {
@@ -40,7 +63,7 @@ export class CartComponent implements OnInit {
         self.total = cartInfo.total;
         Singleton.GetInstance().HideLoader();
       }
-    });
+    });*/
   }
 
   AddOne(sku: any) {

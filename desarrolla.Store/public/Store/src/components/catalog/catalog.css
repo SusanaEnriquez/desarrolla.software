@@ -30,13 +30,16 @@
 }
 
 .card-text {
-    height: 3rem;
+    height: 4rem;
     overflow: hidden;
     text-overflow: ellipsis;
+    width: 12.5rem;
+    float: left;
 }
 
 p.card-text{
     margin: 0 auto;
+    font-size: 0.9rem;
 }
 
 [type='checkbox']{
@@ -44,7 +47,7 @@ p.card-text{
 }
 
 .toast {
-    position: absolute;
+    position: fixed;
     bottom: 1rem;
     right: 1rem;
     background-color: var(--color-blue);
@@ -53,3 +56,29 @@ p.card-text{
 .container{
     margin-top: 2rem;
 }
+
+hr{
+    margin: 0.5rem;
+}
+
+.search-bar{
+    position: relative;
+    
+}
+
+.search-icon{
+    position: absolute;
+    cursor: pointer;
+    top: 0.2rem;
+    right: 0.35rem;
+}
+
+.search-box{
+    padding-right: 1.5rem;
+    border-radius: 5px;
+    border: 0;
+}
+
+input[type=text]:active {
+    outline: 0;
+} 

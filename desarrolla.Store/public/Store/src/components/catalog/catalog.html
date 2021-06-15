@@ -3,17 +3,20 @@
   <article class="row">
     <section class="filtro col-2">
       <h3>SEARCH FILTERS</h3>
-      <input type="checkbox" name="Filtro tal" id="filtro1">
-      <label for="filtro1">filter 1</label>
       <br>
-      <input type="checkbox" name="Filtro tal" id="filtro2">
-      <label for="filtro2">filter 2</label>
+      By name:
+      <div class="search-bar">
+        <input [value]="searchFilters.name" (input)="UpdateName($event.target)" (keydown)="CheckKey($event);" type="text" class="w-100 search-box" placeholder="Buscar...">
+        <div class="search-icon" (click)="GetProducts();">
+          <i class="bi bi-search"></i>
+        </div>
+      </div>
       <br>
-      <input type="checkbox" name="Filtro tal" id="filtro3">
-      <label for="filtro3">filter 3</label>
-      <br>
-      <input type="checkbox" name="Filtro tal" id="filtro4">
-      <label for="filtro4">filter 4</label>
+      By price: <br> $0 - ${{searchFilters.price}}
+      <input class="w-100" type="range" min="0" max="200000" step="100" [value]="searchFilters.price" (input)="UpdatePrice($event.target);" (change)="GetProducts();">
+      <br> <br>
+      <label for="stock">With stock:&nbsp;</label>
+      <input type="checkbox" id="stock" [checked]="searchFilters.stock" (change)="UpdateStock($event.target);">
     </section>
     <!-- <section class="col-9 px-2"> -->
     <section class="col-10">
@@ -39,14 +42,18 @@
         <div class="card-body">
           <span>${{product.price}}</span> <br>
           <span style="font-weight: bold;">{{product.name}}</span>
+          <hr>
           <p class="card-text">
             {{product.description}}
           </p>
-          <span>...</span>
-          <button (click)="AddToCart(product.sku)" class="btn float-right"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-lg" viewBox="0 0 16 16">
-            <path d="M8 0a1 1 0 0 1 1 1v6h6a1 1 0 1 1 0 2H9v6a1 1 0 1 1-2 0V9H1a1 1 0 0 1 0-2h6V1a1 1 0 0 1 1-1z"/>
-          </svg></button>
+          <!-- <span>...</span> -->
+          <button [disabled]="product.stock < 1"  (click)="AddToCart(product.sku)" class="btn float-right"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-lg" viewBox="0 0 16 16">
+            <path d="M8 0a1 1 0 0 1 1 1v6h6a1 1 0 1 1 0 2H9v6a1 1 0 1 1-2 0V9H1a1 1 0 0 1 0-2h6V1a1 1 0 0 1 1-1z"/></svg>
+        </button>
         </div>
+      </div>
+      <div class="text-center" *ngIf="!products.length">
+        <h2 class="mt-5">No results found</h2>
       </div>
     </section>
   </article>

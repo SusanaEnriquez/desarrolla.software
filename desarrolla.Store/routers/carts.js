@@ -45,24 +45,24 @@ router.get('/getCart', async (req, res) => {
                     var issues = await Utils.validateCart(userCart);
                     //userCart.markModified('products');
                     //await userCart.save();
-                    userCart = issues.cart;
+                    userCart = issues;
 
                     res.cookie('CARTID', userCart.id, {
                         expires: new Date(2025, 0, 1)
                     });
 
-                    userCart = userCart.toObject();
-                    delete userCart._id;
-                    delete userCart.__v;
+                    // userCart = userCart.toObject();
+                    // delete userCart._id;
+                    // delete userCart.__v;
                     return res.send(userCart);
                 }
             }
             var issues = await Utils.validateCart(carrito);
-            carrito = issues.cart;
+            carrito = issues;
 
-            carrito = carrito.toObject();
-            delete carrito._id;
-            delete carrito.__v;
+            // carrito = carrito.toObject();
+            // delete carrito._id;
+            // delete carrito.__v;
             return res.send(carrito);
         } else if (user && userCart) {
             res.cookie('CARTID', userCart.id, {
@@ -70,7 +70,7 @@ router.get('/getCart', async (req, res) => {
             });
 
             var issues = await Utils.validateCart(userCart);
-            userCart = issues.cart;
+            userCart = issues;
             return res.send(userCart);
         }
     } else {
@@ -79,7 +79,7 @@ router.get('/getCart', async (req, res) => {
                 expires: new Date(2025, 1, 1)
             });
             var issues = await Utils.validateCart(userCart);
-            userCart = issues.cart;
+            userCart = issues;
             return res.send(userCart);
         }
 
@@ -299,7 +299,7 @@ router.put('/validateCart', async (req, res) => {
                     sku: product.sku,
                     name: product.name
                 },
-                issue: "Este producto ha sido dado de baja del catálogo"
+                issue: "This product has been removed from the catalog."
             });
     
         //Elimina el elemento a partir de la posición i, y lo va a hacer n veces
@@ -313,7 +313,7 @@ router.put('/validateCart', async (req, res) => {
                         sku: product.sku,
                         name: product.name
                     },
-                    issue: "Este producto no tiene stock por el momento"
+                    issue: "This product is currently out of stock."
                 });
     
                 carrito.products.splice(i, 1);
@@ -325,7 +325,8 @@ router.put('/validateCart', async (req, res) => {
                         sku: product.sku,
                         name: product.name
                     },
-                    issue: "Este producto no tiene suficiente stock. Se le ha modificado al máximo existente"
+                    // issue: "Este producto no tiene suficiente stock. Se le ha modificado al máximo existente"
+                    issue: "This product is out of stock, sorry, we'll add more soon!"
                 });
             }
         }

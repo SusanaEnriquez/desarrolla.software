@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
   <title>Store</title>
@@ -12,12 +13,20 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <!-- developer.paypal.com - dashboard - my apps and credentials -->
   <script src="https://www.paypal.com/sdk/js?client-id=Af0TJjvClN4MohyP0o4RnAD891C_gF4Bz2Hlm-r5vmitxNsouay9t-n1veduTUw9VE3yiTLOAhnnI_78&locale=es_MX&buyer-country=MX&currency=MXN&enable-funding=credit,card"></script>
+  <script src="http://localhost:678/Store/src/alert.js"></script>
   <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap">
   <link href="https://fonts.googleapis.com/css2?family=Dosis&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
-  />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
 </head>
+
 <body>
   <store></store>
+  <section class="customAlertContainer">
+    <div class='customAlert'>
+      <div class='message'></div>
+      <input type='button' class='confirmButton' value='Ok'>
+    </div>
+  </section>
 </body>
 </html>

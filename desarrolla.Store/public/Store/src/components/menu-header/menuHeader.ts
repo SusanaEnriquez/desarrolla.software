@@ -34,7 +34,7 @@ export class HeaderComponent implements OnInit{
           if(window.location.pathname === '/register' || window.location.pathname === '/login') {
             window.location.href = '/';
           }
-          self.accountRedirect = "Mi Cuenta";
+          self.accountRedirect = "My account";
         }
       },
       error: function() {
@@ -53,11 +53,30 @@ export class HeaderComponent implements OnInit{
       },
       url: "http://localhost:678/carts/getCart",
       success: function (cartInfo: any) {
+         //Mostrar un modal o mensaje con los issues
+         var issues = cartInfo.cart_issues;
+         if(issues.length) {
+          var messages = '';
+          for (var i = 0; i < issues.length; i++) {
+            const problema = issues[i];
+            messages += problema.issue + "<br><br>Problem product: " + problema.product.name + "<br>ID: " + problema.product.sku + "<hr>";
+          }
+
+          //Mostrar modal
+          alert(messages);
+         }
+         
+         cartInfo = cartInfo.cart;
         if(Singleton.GetInstance().UpdateCheckout){
           var copia = Object.assign({},cartInfo)
           Singleton.GetInstance().UpdateCheckout(copia);  
         }
 
+        if (Singleton.GetInstance().UpdateCartPage) {
+          var copia = Object.assign({}, cartInfo);
+          Singleton.GetInstance().UpdateCartPage(copia);
+        }
+        
         self.numberProducts = cartInfo.quantity;
         Singleton.GetInstance().HideLoader();
         //console.log('Carrito: ')

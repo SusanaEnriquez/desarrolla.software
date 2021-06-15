@@ -14,9 +14,107 @@
 body {
     background: var(--color-white);
     color: var(--color-black);
-    font-family: 'Dosis', sans-serif;
+    /* font-family: 'Dosis', sans-serif; */
+    font-family: 'Poppins', sans-serif;
 }
 
 .float-right {
     float: right;
 }
+
+.link {
+    color: var(--color-black);
+    font-weight: bold;
+    text-decoration: underline;
+    cursor: pointer;
+  }
+  
+  .link:hover {
+    color: var(--color-blue);
+  }
+  
+  .overflow-hidden {
+    overflow: hidden;
+  }
+  
+  /*Custom Alert styles */
+  .customAlertContainer {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    left: 0;
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.75);
+    z-index: 3091;
+  }
+  
+  .customAlert {
+    display: none;
+    text-align: center;
+    min-width: 250px !important;
+    max-width: 50%;
+    padding: 10px;
+    box-sizing: border-box;
+    background:linear-gradient(110deg,#297fb9b6,#8d44adc2);
+    border-radius: 20px;
+    color: white;
+  }
+  
+  @media all and (max-width: 1300px) {
+    .customAlert .message {
+      font-size: 14px !important;
+    }
+  
+    .customAlert input[type=button] {
+      height: 15% !important;
+    }
+  }
+  
+  .customAlert .message {
+    padding: 5px;
+    color: var(--color-white);
+    font-size: 1.5rem;
+    text-align: center;
+    word-break: break-word;
+  }
+  
+  .customAlert input[type=button] {
+    width: 120px;
+    height: 36px;
+    outline: 0;
+    border: 0;
+    background: var(--color-footer);
+    color: var(--color-gray);
+    font-weight: bold;
+    border-radius: 15px;
+  }
+  
+  .customAlert input[type=button]:hover {
+    transition: 0.3s;
+    cursor: pointer;
+    background: var(--color-gray);
+    color: var(--color-footer);   
+  }
+  
+  @keyframes fadeOut {
+    from {
+      opacity: 1;
+    }
+  
+    to {
+      opacity: 0;
+    }
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+  
+    to {
+      opacity: 1;
+    }
+  }

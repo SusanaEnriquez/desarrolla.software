@@ -6,36 +6,37 @@
    </head>
    <body>
         <div class="content">
-         <section class="row register-form p-5">
+         <section class="row register-form p-4">
             <div class="text">
                Welcome!
-            </div>
+               
+            </div><p style="font-size: 1rem;">Data with "*" are required</p>
            <div class="col-6 ">
              <article class="d-table w-100">
                <div class="d-table-cell w-100 h-100 align-middle">
                   <div class="field">
-                     <input type="text" (input)='UpdateValue($event,"nickname")' placeholder='Nickname'>
+                     <input type="text" (input)='UpdateValue($event,"nickname")' placeholder='Nickname *'>
                      <span class="fas fa-user"></span>
                   </div>
        
                   <div class="field">
-                     <input type="text" (input)='UpdateValue($event,"name")' placeholder='Name'>
+                     <input type="text" (input)='UpdateValue($event,"name")' placeholder='Name *'>
                      <span class="fas fa-user"></span>
                   </div>
        
                   <div class="field">
-                     <input type="text" (input)='UpdateValue($event,"lastName")' placeholder='LastName'>
+                     <input type="text" (input)='UpdateValue($event,"lastName")' placeholder='LastName *'>
                      <span class="fas fa-user"></span>
                   </div>
        
                   <div class="field">
-                     <input type="text" (input)='UpdateValue($event,"email")' placeholder='Email'>
+                     <input type="text" (input)='UpdateValue($event,"email")' placeholder='Email *'>
                      <span class="bi bi-envelope-fill"></span>
                         
                   </div>
        
                   <div class="field">
-                     <input type="password" (input)='UpdateValue($event,"password")' placeholder='Password'>
+                     <input type="password" (input)='UpdateValue($event,"password")' placeholder='Password *'>
                      <span class="fas fa-lock"></span>
                   </div>
 

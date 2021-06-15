@@ -1,12 +1,15 @@
 footer {
     padding: .5rem;
     background-color: var(--color-footer);
+    color: rgb(109, 108, 108);
 }
 
 .text-left{
     text-align: left;
 }
 
-.m{
-    margin-top: 1.5em;
+i{
+    margin-left: 2rem;
+    font-size: 2rem;
+    color: rgb(109, 108, 108);
 }

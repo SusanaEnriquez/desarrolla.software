@@ -39,12 +39,13 @@
             </td>
             <td>
               <div class="d-flex align-items-center centered">
-                ${{product.qty * product.unit_price}}
+                <!-- ${{product.qty * product.unit_price}} -->
+                ${{product.unit_price}}<span style="font-size: smaller; font-style: italic;">&nbsp;ea.</span>
               </div>
             </td>
             <td>
               <div class="d-flex align-items-center delete-items centered">
-                <span class="button-cart" (click)="DeleteProduct(product.sku);">x</span>
+                <span class="button-cart" (click)="DeleteProduct(product.sku);"><i style="font-size: 1,3rem; color: gray;" class="bi bi-trash-fill"></i></span>
               </div>
             </td>
           </tr>

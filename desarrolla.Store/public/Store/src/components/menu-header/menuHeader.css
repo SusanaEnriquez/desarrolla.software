@@ -4,7 +4,7 @@ header {
     height: 3rem;
     padding: 0.3rem;
     color: #EEEEEE;
-    font-size: 1.4rem;
+    font-size: 1.25rem;
     
     position: sticky;
     left: 0;
@@ -39,6 +39,7 @@ a:last-child{
     width: 2.4rem;
     background-color: dimgray;
     float: left;
+    border-radius: 6px;
 }
 
 .float-left{

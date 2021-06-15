@@ -82,6 +82,7 @@ module.exports = {
                     i--;
                     continue;
                 } else if (productDB.stock < product.qty) {
+                    product.qty = productDB.stock;
                     cart_issues.push({
                         product: {
                             sku: product.sku,
@@ -109,8 +110,8 @@ module.exports = {
         carrito.markModified('products');
         await carrito.save();
 
-        console.log('El nuevo carrito: ');
-        console.log(cart_issues);
+        // console.log('El nuevo carrito: ');
+        // console.log(cart_issues);
     
         return { cart: carrito, cart_issues: cart_issues };
     
