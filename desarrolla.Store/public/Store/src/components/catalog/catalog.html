@@ -13,7 +13,7 @@
       </div>
       <br><hr><br> 
       By price: <br> $0 - ${{searchFilters.price}}
-      <input class="w-100" type="range" min="0" max="110000" step="1000" [value]="searchFilters.price" (input)="UpdatePrice($event.target);" (change)="GetProducts();">
+      <input class="w-100" type="range" min="0" max="10000" step="100" [value]="searchFilters.price" (input)="UpdatePrice($event.target);" (change)="GetProducts();">
       <br> <br> <hr> <br>
       <label for="stock">With stock:&nbsp;</label>
       <input type="checkbox" id="stock" [checked]="searchFilters.stock" (change)="UpdateStock($event.target);">
