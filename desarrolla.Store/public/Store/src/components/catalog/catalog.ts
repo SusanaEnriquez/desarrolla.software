@@ -81,7 +81,7 @@ export class CatalogComponent implements OnInit { //Cambiar el nombre de AppComp
   products = new Array;
   searchFilters = {
     name: '',
-    price: 200000,
+    price: 110000,
     stock: false
   }
 }

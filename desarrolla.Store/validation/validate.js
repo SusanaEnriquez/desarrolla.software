@@ -22,7 +22,8 @@ module.exports = {
             name: Joi.string().required(),
             description: Joi.string().required(),
             stock: Joi.number().required(),
-            price: Joi.number().required()
+            price: Joi.number().required(),
+            images: Joi.array().required()
         });
         return schema.validate(data);
     },
@@ -30,8 +31,8 @@ module.exports = {
     // VALIDAR EL LOGIN
     login: function(data) {
         const schema = Joi.object({
-            nickname: Joi.string().required(),
-            email: Joi.string().required(),
+            nickname: Joi.string().optional(),
+            email: Joi.string().optional(),
             password: Joi.string().required()
         });
         return schema.validate(data);
@@ -48,11 +49,11 @@ module.exports = {
                 zip: Joi.number().required()
             }).required(),
             email: Joi.string().email().required(),
-            phone: Joi.number().required(),
-            details: Joi.object().keys({
-                products: Joi.string().required(),
-                total: Joi.number().required()
-            }).required()
+            phone: Joi.number().required()
+            // details: Joi.object().keys({
+            //     products: Joi.string().required(),
+            //     total: Joi.number().required()
+            // }).required()
         });
         return schema.validate(data);
     }

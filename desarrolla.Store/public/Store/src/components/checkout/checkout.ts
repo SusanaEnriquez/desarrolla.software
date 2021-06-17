@@ -50,8 +50,8 @@ import {
             self.userData.address.suburb === '' ||
             self.userData.address.zip === ''
           ) {
-            document.documentElement.style.setProperty('--required-status', 'var(--error-color)');
             self.validInfo = false;
+            document.documentElement.style.setProperty('--required-status', 'var(--error-color)');
             return;
           }
           

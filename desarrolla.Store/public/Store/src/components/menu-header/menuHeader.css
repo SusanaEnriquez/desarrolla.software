@@ -1,5 +1,6 @@
 header {
-    background: linear-gradient(120deg,#2980b9,#8e44ad);
+    /* background: linear-gradient(120deg,#2980b9,#8e44ad); */
+    background: linear-gradient(120deg,#297fb9e5,#8d44addc);
     box-shadow: 0rem 0.2rem 1rem 0.1rem #393e46;
     height: 3rem;
     padding: 0.3rem;
@@ -26,7 +27,7 @@ a:hover {
     font-weight: bold;
     transition: 0.3s color;
     animation: bounce; /* referring directly to the animation's @keyframe declaration */
-    animation-duration: 2s; /* don't forget to set a duration! */
+    animation-duration: 1s; /* don't forget to set a duration! */
 }
 
 a:last-child{

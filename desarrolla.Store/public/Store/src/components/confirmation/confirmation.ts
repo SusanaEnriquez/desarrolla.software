@@ -17,10 +17,10 @@ import {
   export class ConfirmationComponent implements OnInit { //Cambiar el nombre de AppComponent por el del nuestro
     ngOnInit(){
         // this.GetPedido();
-        var self = this;
         Singleton.GetInstance().ShowLoader();
         var query = window.location.search;
         var result : any;
+        var self = this;
         result = query.match(/[Oo][Rr][Dd][Ee][Rr]=\w+/);
         if(result.length ===1){
           result = result[0].split('=');
@@ -28,7 +28,7 @@ import {
           // console.log(numPedido);
           $.ajax({
             type: 'GET',
-            url: 'http://localhost:678/orders/validate' + numPedido,
+            url: 'http://localhost:678/orders/validate/' + numPedido,
             success: function (res:any){
               if(res.valid === true){
                 self.numeroPedido = numPedido;
@@ -39,12 +39,12 @@ import {
         }         
     }
 
-    GetPedido(){
-        this.numeroPedido=null;
+    // GetPedido(){
+    //     this.numeroPedido=null;
         
-        if(this.numeroPedido=null){
-            window.location.href = '/'
-        }
-    }
+    //     if(this.numeroPedido=null){
+    //         window.location.href = '/'
+    //     }
+    // }
     numeroPedido = null;
   }

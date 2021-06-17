@@ -1,10 +1,9 @@
-<article *ngIf='numeroPedido !== null else confirmacionInvalida'>
+<article *ngIf="numeroPedido !== null else confirmacionInvalida">
 <div class="container py-5 text-center">
-    <hr>
     <i class="bi bi-check-circle"></i>
     <h5>Confirmed</h5>
     <div class="cuadro">
-    <h2>Your order will be processed as soon as possible. You will receive an email with the information of your purchase.</h2>
+    <h3>Your order will be processed as soon as possible. You will receive an email with the information of your purchase.</h3>
     </div>
     <h2>Your order number is: {{numeroPedido}}</h2>
     <hr>
@@ -18,7 +17,7 @@
 </article>
 
 <ng-template #confirmacionInvalida>
-    <div class="container py-5 text-center">
+    <div class="container py-5 text-center invalid-order">
         <hr>
         <i class="bi bi-x-circle"></i>
         <h5>Invalid</h5>

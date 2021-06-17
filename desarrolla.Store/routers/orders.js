@@ -1,5 +1,5 @@
 const express = require('express'); // referencia del servidor de express
-// const { Validate } = require('../models/order');
+// const { validate } = require('../models/order');
 const router = express.Router(); // crear un enrutador para este servicio
 const Order = require('../models/order');
 const Utils = require('../utils/utils'); //Importar el módulo de utilities
@@ -9,14 +9,14 @@ const Product = require('../models/product');
 
 router.post('/', async (req,res) => {
     
-    const {error} = validate.order(req.body);
+    const {error} = Validate.order(req.body);
     if(error){
         return res.status(400).send({
             error: error.details[0].message
         });
     }
 
-    const cartID = req.cookies['CARTID'];
+    const cartID = req.cookies["CARTID"];
     var cart = await Cart.findOne({ id: cartID });
 
     if(!cart) {

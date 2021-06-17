@@ -9,7 +9,11 @@ footer {
 }
 
 i{
-    margin-left: 2rem;
+    margin-left: 1rem;
     font-size: 2rem;
     color: rgb(109, 108, 108);
+}
+
+.uno{
+    margin-left: 0;
 }

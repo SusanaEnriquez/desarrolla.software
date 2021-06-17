@@ -6,15 +6,15 @@
       <br>
       By name:
       <div class="search-bar">
-        <input [value]="searchFilters.name" (input)="UpdateName($event.target)" (keydown)="CheckKey($event);" type="text" class="w-100 search-box" placeholder="Buscar...">
+        <input [value]="searchFilters.name" (input)="UpdateName($event.target)" (keydown)="CheckKey($event);" type="text" class="w-100 search-box" placeholder="Search...">
         <div class="search-icon" (click)="GetProducts();">
           <i class="bi bi-search"></i>
         </div>
       </div>
-      <br>
+      <br><hr><br> 
       By price: <br> $0 - ${{searchFilters.price}}
-      <input class="w-100" type="range" min="0" max="200000" step="100" [value]="searchFilters.price" (input)="UpdatePrice($event.target);" (change)="GetProducts();">
-      <br> <br>
+      <input class="w-100" type="range" min="0" max="110000" step="1000" [value]="searchFilters.price" (input)="UpdatePrice($event.target);" (change)="GetProducts();">
+      <br> <br> <hr> <br>
       <label for="stock">With stock:&nbsp;</label>
       <input type="checkbox" id="stock" [checked]="searchFilters.stock" (change)="UpdateStock($event.target);">
     </section>
