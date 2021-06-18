@@ -24,6 +24,7 @@
           <tr *ngFor="let product of products">
             <td class="product-image">
                 <img [src]="product.images[0]">
+                <!-- <img *ngIf="product.images" [src]="product.images[0]"> -->
             </td>
             <td class="product-detail">
               <div [title]="product.sku"># {{product.sku}}</div>

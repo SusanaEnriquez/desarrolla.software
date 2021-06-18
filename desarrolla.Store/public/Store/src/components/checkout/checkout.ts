@@ -223,7 +223,7 @@ import {
       email: '',
       phone: '',
     }
-    gastosEnvio =220;
+    gastosEnvio =11;
     cart = {
       quantity:0,
       total:0,

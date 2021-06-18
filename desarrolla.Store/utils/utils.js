@@ -88,7 +88,7 @@ module.exports = {
                             sku: product.sku,
                             name: product.name
                         },
-                        issue: "Este producto no tiene suficiente stock. Se le ha modificado al máximo existente"
+                        issue:  "This product is out of stock, sorry, we'll add more soon!"
                     });
                 }
             }
