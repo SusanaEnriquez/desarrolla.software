@@ -1,0 +1,73 @@
+Generar un servicio para un sitio de adopción de mascotas.
+Dicho servicio tiene 3 partes
+
+Una parte pública:
+* Registro
+-users
+* Listado de mascota en adopción
+-pets
+* Portafolio del usuario
+-users
+* Ver visitas
+-appointments
+* Ver citas agendadas
+-appointments
+* Peticiones de adopción
+-requests
+
+Una parte privada:
+* Dar de alta mascotas en adopción:
+-pets
+* Revisión de peticiones: Aceptar, Rechazar o En Revisión
+-requests
+
+Una parte administrativa:
+* Crear visitas
+-appointments
+* Modificar usuarios
+-users
+* Crear citas con usuarios
+-appointments
+
+Endpoints:
+
+PETS:
+-GET para ver todas las mascotas
+-GET para ver una mascota en específico
+-POST para dar de alta una mascota en adopción
+-PUT para editar los detalles de una mascota
+-DELETE para dar de baja una mascota
+
+USERS:
+-GET para ver todos los usuarios
+-GET para ver el portafolio de un usuario
+-GET para ver el perfil de un usuario
+-POST para registrar un usuario
+-PUT para modificar un usuario
+-PUT para modificar el portafolio del usuario
+-DELETE para borrar usuarios
+
+REQUESTS:
+-GET para ver todas las peticiones
+-GET para ver una petición en específico
+-POST para dar de alta una petición de adopción
+-PUT para editar los detalles de una petición
+-DELETE para dar de baja una petición
+
+APPOINTMENTS:
+-GET para ver todas las citas de los usuarios
+-GET para ver la cita en específico de un usuario
+-GET para ver todas las visitas agendadas
+-GET para ver una visita en específico
+-POST para crear una cita
+-POST para crear una visita
+-PUT para modificar los detalles de una visita
+-PUT para modificar los detalles de una cita
+-DELETE para eliminar una visita
+-DELETE para eliminar una cita
+
+Datos:
+-User: nickname, name, lastName, email, password, portafolio: [{ reqID }]
+-Pet: petID, name, type, age, description
+-Request: reqID, nickname, status, petID, dateAdopt
+-Appointment: appointID, type: cita, visita, dateTime

@@ -1,0 +1,17 @@
+{
+  "name": "ejemplo",
+  "version": "1.0.0",
+  "description": "ejemplo de proyecto",
+  "main": "ejemplo.js",
+  "dependencies": {
+    "cookie-parser": "^1.4.5",
+    "express": "^4.17.1",
+    "mongoose": "^5.12.5"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "SEG",
+  "license": "MIT"
+}
